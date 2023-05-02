@@ -7,6 +7,7 @@
   font-family: "Roboto";
 }
 
+/* HOME ESTILOS */
 .empezar{
   text-align: center;
 }
@@ -36,4 +37,58 @@
 .boton-empezar:hover{
   background-color: antiquewhite;
   transition: 1s;
+}
+
+/* ESTILOS REGISTRAR MARCAS */
+
+.container-marcas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content-marcas {
+  width: 80%;
+  max-width: 500px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.content-marcas h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.input-marcas {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.input-marcas label {
+  width: 150px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.input-marcas input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-marcas input[type="text"]:focus {
+  outline: none;
+  border: 1px solid #6e87c6;
+}
+
+.kg{
+  padding: 5px;
 }
