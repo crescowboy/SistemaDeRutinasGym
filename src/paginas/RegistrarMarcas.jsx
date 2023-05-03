@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Pr from './Pr';
 
 
 
 const RegistrarMarcas = () => {
-  const {register,handleSubmit} = useForm();
+  const {register,handleSubmit,reset} = useForm();
+  const [valores,setValores] = useState([]);
+  const [estado,setEstado] = useState(false);
+
 
   const obtenerValores =(data)=>{
     console.table(data)
+    setValores([ data])
+    setEstado(true);
+    reset();
   }
   return (
     <>
@@ -43,7 +49,7 @@ const RegistrarMarcas = () => {
         </div>
 
         <div className='boton-marcas'>
-          <input type="submit" />
+          <input type="submit" value="Registrar"/>
         </div>
         </div>
       </div>
@@ -51,7 +57,26 @@ const RegistrarMarcas = () => {
       </form>
 
      
-     
+      {
+        
+       
+        valores.map((valor,index)=>(
+          <div className='mostrarPr' key={index}>
+            <div className='ejercicioPr'>
+            <div className=''>{valor.banca}
+            </div>
+            <div>kg</div>
+            <div>Press Banca</div>
+            </div>
+            <div className='ejercicioPr'>Sentadilla: {valor.sentadilla}</div>
+            <div className='ejercicioPr'>Peso Muerto: {valor.pesoMuerto}</div>
+            
+          </div>
+          
+        ))
+        
+        
+      }
       
     </>
   )
