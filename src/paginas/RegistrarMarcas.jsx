@@ -58,35 +58,86 @@ const RegistrarMarcas = () => {
 
      
       {
-        
+      estado === false
+      ?
+
+      <div className='mostrarPr' >
+            
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                <div className=''><span>---</span>
+                  
+                  </div>
+                  <div>kg</div>
+                  <div>Press Banca</div>
+              </div>
+            </div>
+
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                  <div className=''><span>---</span>
+                  
+                  </div>
+                  <div>kg</div>
+                  <div>Sentadilla</div>
+              </div>
+            </div>
+
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                  <div className=''>
+                  <span>---</span>
+                  </div>
+                  <div>kg</div>
+                  <div>Peso muerto</div>
+              </div>
+            </div>
+            
+            
+          </div>
+
+
+
        
+        
+        
+        :
         valores.map((valor,index)=>(
           <div className='mostrarPr' key={index}>
             
             <div className='ejercicioPr1'>
               <div className='ejercicioPr'>
-                <div className=''>{valor.banca}
-                </div>
-                <div>kg</div>
-                <div>Press Banca</div>
+                <div className=''>{valor.banca
+                  ? valor.banca
+                  : <span>---</span>
+                  }
+                  </div>
+                  <div>kg</div>
+                  <div>Press Banca</div>
               </div>
             </div>
 
             <div className='ejercicioPr1'>
               <div className='ejercicioPr'>
-                <div className=''>{valor.sentadilla}
-                </div>
-                <div>kg</div>
-                <div>Sentadilla</div>
+                  <div className=''>{valor.sentadilla
+                  ? valor.sentadilla
+                  :<span>---</span>
+                  }
+                  </div>
+                  <div>kg</div>
+                  <div>Sentadilla</div>
               </div>
             </div>
 
             <div className='ejercicioPr1'>
               <div className='ejercicioPr'>
-                <div className=''>{valor.pesoMuerto}
-                </div>
-                <div>kg</div>
-                <div>Peso muerto</div>
+                  <div className=''>{valor.pesoMuerto 
+                  ? valor.pesoMuerto
+                  :
+                  <span>---</span>}
+                  </div>
+                  <div>kg</div>
+                  <div>Peso muerto</div>
               </div>
             </div>
             
@@ -94,8 +145,6 @@ const RegistrarMarcas = () => {
           </div>
           
         ))
-        
-        
       }
       
     </>
