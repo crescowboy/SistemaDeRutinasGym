@@ -127,15 +127,31 @@
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: black;
+  
+}
+
+
+.ejercicioPr1{
+  width: 149px;
+  height: 149px;
+  border-radius: 50%;
+  background-color: rgb(8, 8, 8);
+  border: 3px solid white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 .ejercicioPr {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  border: 3px solid white;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,6 +164,8 @@
 
 
 .ejercicioPr:hover {
-  background-color: gray;
-  transition: 0.5s;
+  background-color: rgb(63, 63, 63);
+  color: white;
+  transition: 0.3s;
 }
+

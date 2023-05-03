@@ -62,14 +62,34 @@ const RegistrarMarcas = () => {
        
         valores.map((valor,index)=>(
           <div className='mostrarPr' key={index}>
-            <div className='ejercicioPr'>
-            <div className=''>{valor.banca}
+            
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                <div className=''>{valor.banca}
+                </div>
+                <div>kg</div>
+                <div>Press Banca</div>
+              </div>
             </div>
-            <div>kg</div>
-            <div>Press Banca</div>
+
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                <div className=''>{valor.sentadilla}
+                </div>
+                <div>kg</div>
+                <div>Sentadilla</div>
+              </div>
             </div>
-            <div className='ejercicioPr'>Sentadilla: {valor.sentadilla}</div>
-            <div className='ejercicioPr'>Peso Muerto: {valor.pesoMuerto}</div>
+
+            <div className='ejercicioPr1'>
+              <div className='ejercicioPr'>
+                <div className=''>{valor.pesoMuerto}
+                </div>
+                <div>kg</div>
+                <div>Peso muerto</div>
+              </div>
+            </div>
+            
             
           </div>
           
