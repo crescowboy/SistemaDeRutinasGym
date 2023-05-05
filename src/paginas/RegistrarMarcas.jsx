@@ -19,6 +19,8 @@ const RegistrarMarcas = () => {
   return (
     <>
 
+    <div className='Pr-padre'>
+
       <form onSubmit={handleSubmit(obtenerValores)}>
 
       
@@ -30,12 +32,19 @@ const RegistrarMarcas = () => {
   <label htmlFor="banca">Press Banca:</label>
   <input 
     type="number" 
-    id="banca" 
-    min={1}
+    id="banca"
     max={999}
-    {...register("banca")}
+    {...register("banca",
+    {
+      min:1
+    }
+    )}
     onInput={(e) => {
-      e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
+      let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
+            if (newValue === "0") {
+              newValue = "";
+            }
+            e.target.value = newValue;
     }}
   />
   <span className='kg'>kg</span> 
@@ -57,7 +66,11 @@ const RegistrarMarcas = () => {
           }
           )}
           onInput={(e) => {
-            e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
+            let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
+            if (newValue === "0") {
+              newValue = "";
+            }
+            e.target.value = newValue;
           }}
           />
           <span className='kg'>kg</span> 
@@ -76,7 +89,11 @@ const RegistrarMarcas = () => {
           }
           )}
           onInput={(e) => {
-            e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
+            let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
+            if (newValue === "0") {
+              newValue = "";
+            }
+            e.target.value = newValue;
           }}
           />
           <span className='kg'>kg</span> 
@@ -184,7 +201,7 @@ const RegistrarMarcas = () => {
           
         ))
       }
-      
+      </div>
     </>
   )
 }
