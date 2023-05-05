@@ -27,20 +27,26 @@ const RegistrarMarcas = () => {
         <div className='content-marcas'>
           <h1>Marcas registradas:</h1>
           <div className='input-marcas'>
-            <label htmlFor="banca">Press Banca:</label>
-            <input type="number" id='banca'  maxLength="3" 
-            {...register("banca",
-            {
-              min:1,
-            }
-          )}
-            />
-            <span className='kg'>kg</span> 
-          </div>
+  <label htmlFor="banca">Press Banca:</label>
+  <input 
+    type="number" 
+    id="banca"
+    min={1}
+    max={999}
+    {...register("banca", {
+      min: 1,
+      
+    })}
+  />
+  <span className='kg'>kg</span> 
+</div>
 
-          {errors.banca?.type === "min" &&
-            <div className='error'>como minimo debe ser 1</div>
-          }
+{errors.banca?.type === "min" &&
+  <div className='error'>Como mínimo debe ser 1</div>
+}
+
+
+
 
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
