@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 
 
 const RegistrarMarcas = () => {
-  const {register,handleSubmit,reset} = useForm();
+  const {register,handleSubmit,formState:{errors}, reset} = useForm();
   const [valores,setValores] = useState([]);
   const [estado,setEstado] = useState(false);
 
@@ -28,27 +28,51 @@ const RegistrarMarcas = () => {
           <h1>Marcas registradas:</h1>
           <div className='input-marcas'>
             <label htmlFor="banca">Press Banca:</label>
-            <input type="text" id='banca' 
-            {...register("banca")}
+            <input type="number" id='banca'  maxLength="3" 
+            {...register("banca",
+            {
+              min:1,
+            }
+          )}
             />
             <span className='kg'>kg</span> 
           </div>
 
+          {errors.banca?.type === "min" &&
+            <div className='error'>como minimo debe ser 1</div>
+          }
+
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
-          <input type="text" id='sentadilla'
-          {...register("sentadilla")}
+          <input type="number" id='sentadilla' maxLength="3"
+          {...register("sentadilla",
+          {
+            min: 1
+          }
+          )}
           />
           <span className='kg'>kg</span> 
         </div>
 
+        {errors.sentadilla?.type === "min" &&
+          <div className='error'>Como minimo debe ser 1</div>
+        }
+
         <div className='input-marcas'>
           <label htmlFor="pesoMuerto">Peso muerto:</label>
-          <input type="text" id='pesoMuerto'
-          {...register("pesoMuerto")}
+          <input type="number" id='pesoMuerto' maxLength="3"
+          {...register("pesoMuerto",
+          {
+            min: 1
+          }
+          )}
           />
           <span className='kg'>kg</span> 
         </div>
+
+        {errors.pesoMuerto?.type === "min" &&
+          <div className='error'>Como minimo debe ser 1</div>
+        }
 
         <div className='boton-marcas'>
           <input type="submit" value="Registrar"/>
