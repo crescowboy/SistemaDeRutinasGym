@@ -30,13 +30,18 @@ const RegistrarMarcas = () => {
   <label htmlFor="banca">Press Banca:</label>
   <input 
     type="number" 
-    id="banca"
+    id="banca" 
     min={1}
     max={999}
-    {...register("banca", {
-      min: 1,
-      
-    })}
+    {...register("banca")}
+    onInput={(e) => {
+      const value = e.target.value.trim()
+      if (value !== '' && value.length > 3) {
+        e.target.value = value.slice(0, 3)
+      } else {
+        e.target.value = value
+      }
+    }}
   />
   <span className='kg'>kg</span> 
 </div>
@@ -56,6 +61,9 @@ const RegistrarMarcas = () => {
             min: 1
           }
           )}
+          onInput={(e) => {
+            e.target.value = Math.max(1, parseInt(e.target.value || 1)).toString().slice(0, 3)
+          }}
           />
           <span className='kg'>kg</span> 
         </div>
@@ -72,6 +80,9 @@ const RegistrarMarcas = () => {
             min: 1
           }
           )}
+          onInput={(e) => {
+            e.target.value = Math.max(1, parseInt(e.target.value || 1)).toString().slice(0, 3)
+          }}
           />
           <span className='kg'>kg</span> 
         </div>
