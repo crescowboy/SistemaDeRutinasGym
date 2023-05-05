@@ -35,12 +35,7 @@ const RegistrarMarcas = () => {
     max={999}
     {...register("banca")}
     onInput={(e) => {
-      const value = e.target.value.trim()
-      if (value !== '' && value.length > 3) {
-        e.target.value = value.slice(0, 3)
-      } else {
-        e.target.value = value
-      }
+      e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
     }}
   />
   <span className='kg'>kg</span> 
@@ -62,7 +57,7 @@ const RegistrarMarcas = () => {
           }
           )}
           onInput={(e) => {
-            e.target.value = Math.max(1, parseInt(e.target.value || 1)).toString().slice(0, 3)
+            e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
           }}
           />
           <span className='kg'>kg</span> 
@@ -81,7 +76,7 @@ const RegistrarMarcas = () => {
           }
           )}
           onInput={(e) => {
-            e.target.value = Math.max(1, parseInt(e.target.value || 1)).toString().slice(0, 3)
+            e.target.value = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3)
           }}
           />
           <span className='kg'>kg</span> 
