@@ -13,11 +13,39 @@ const RegistrarMarcas = () => {
 
 
   const obtenerValores =(data)=>{
-    console.table(data)
-    
-    setValores([...valores, data])
-    setEstado(true);
-    reset();
+    console.table(data);
+
+  const campo = Object.keys(data)[0];
+  const campo2 = Object.keys(data)[1];
+  const campo3 = Object.keys(data)[2];
+  const valor = data[campo];
+  const valor2 = data[campo2];
+  const valor3 = data[campo3];
+
+  const valorExistente = valores.find((v) => v.hasOwnProperty(campo));
+  const valorExistente2 = valores.find((v) => v.hasOwnProperty(campo2));
+  const valorExistente3 = valores.find((v) => v.hasOwnProperty(campo3));
+
+  if (valorExistente) {
+    const nuevosValores = valores.map((v) => {
+      if (v === valorExistente) {
+        return { ...v, [campo]: valor };
+      }
+      if (v === valorExistente2) {
+        return { ...v, [campo2]: valor2 };
+      }
+      if (v === valorExistente3) {
+        return { ...v, [campo3]: valor3 };
+      }
+      return v;
+    });
+    setValores(nuevosValores);
+  } else {
+    setValores([...valores, data]);
+  }
+
+  setEstado(true);
+  reset();
   }
   return (
     <>
