@@ -12,6 +12,8 @@ const RegistrarMarcas = () => {
   const [estado,setEstado] = useState(false);
 
 
+  
+
   const obtenerValores =(data)=>{
     console.table(data);
 
@@ -50,6 +52,8 @@ const RegistrarMarcas = () => {
   setEstado(true);
   reset();
   }
+
+  
   return (
     <>
 
