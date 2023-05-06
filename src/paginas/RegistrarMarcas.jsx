@@ -23,20 +23,23 @@ const RegistrarMarcas = () => {
   const valor3 = data[campo3];
 
   const valorExistente = valores.find((v) => v.hasOwnProperty(campo));
-  const valorExistente2 = valores.find((v) => v.hasOwnProperty(campo2));
-  const valorExistente3 = valores.find((v) => v.hasOwnProperty(campo3));
 
   if (valorExistente) {
     const nuevosValores = valores.map((v) => {
       if (v === valorExistente) {
-        return { ...v, [campo]: valor };
+        const actualizacion = {};
+        if (valor) {
+          actualizacion[campo] = valor;
+        }
+        if (valor2) {
+          actualizacion[campo2] = valor2;
+        }
+        if (valor3) {
+          actualizacion[campo3] = valor3;
+        }
+        return { ...v, ...actualizacion };
       }
-      if (v === valorExistente2) {
-        return { ...v, [campo2]: valor2 };
-      }
-      if (v === valorExistente3) {
-        return { ...v, [campo3]: valor3 };
-      }
+
       return v;
     });
     setValores(nuevosValores);
