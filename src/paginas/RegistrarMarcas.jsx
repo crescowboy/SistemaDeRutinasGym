@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { pr } from '../data/datos';
+
 
 
 
@@ -12,7 +14,8 @@ const RegistrarMarcas = () => {
 
   const obtenerValores =(data)=>{
     console.table(data)
-    setValores([ data])
+    
+    setValores([...valores, data])
     setEstado(true);
     reset();
   }
@@ -33,7 +36,6 @@ const RegistrarMarcas = () => {
   <input 
     type="number" 
     id="banca"
-    max={999}
     {...register("banca",
     {
       min:1
@@ -50,16 +52,14 @@ const RegistrarMarcas = () => {
   <span className='kg'>kg</span> 
 </div>
 
-{errors.banca?.type === "min" &&
-  <div className='error'>Como mínimo debe ser 1</div>
-}
+
 
 
 
 
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
-          <input type="number" id='sentadilla' maxLength="3"
+          <input type="number" id='sentadilla' 
           {...register("sentadilla",
           {
             min: 1
@@ -76,13 +76,11 @@ const RegistrarMarcas = () => {
           <span className='kg'>kg</span> 
         </div>
 
-        {errors.sentadilla?.type === "min" &&
-          <div className='error'>Como minimo debe ser 1</div>
-        }
+       
 
         <div className='input-marcas'>
           <label htmlFor="pesoMuerto">Peso muerto:</label>
-          <input type="number" id='pesoMuerto' maxLength="3"
+          <input type="number" id='pesoMuerto' 
           {...register("pesoMuerto",
           {
             min: 1
@@ -99,9 +97,7 @@ const RegistrarMarcas = () => {
           <span className='kg'>kg</span> 
         </div>
 
-        {errors.pesoMuerto?.type === "min" &&
-          <div className='error'>Como minimo debe ser 1</div>
-        }
+        
 
         <div className='boton-marcas'>
           <input type="submit" value="Registrar"/>
