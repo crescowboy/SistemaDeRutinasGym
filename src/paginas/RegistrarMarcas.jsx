@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { pr } from '../data/datos';
+import Nav from '../Nav';
+
 
 
 
@@ -58,6 +60,8 @@ const RegistrarMarcas = () => {
     <>
 
     <div className='Pr-padre'>
+      
+    <Nav></Nav>
 
       <form onSubmit={handleSubmit(obtenerValores)}>
 
