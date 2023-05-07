@@ -9,7 +9,7 @@ const Home = () => {
     <div className='container-empezar'>
     <div className='empezar'>
       <h1>Empieza a conseguir resultados!</h1>
-      <button className='boton-empezar' onClick={()=> navegacion("/registrar")}>Empezar</button> 
+      <button className='boton-empezar' onClick={()=> navegacion("/registrarPr")}>Empezar</button> 
     </div>
     </div>
     

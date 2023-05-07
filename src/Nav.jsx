@@ -14,8 +14,9 @@ const Nav = () => {
         <li><NavLink className={
             ({isActive})=> (isActive ? "activado"
             : null)
-        } to="/registrar">Registrar Pr</NavLink></li>
-        <li><NavLink to="/">Home</NavLink></li>   
+        } to="/registrarPr">Registrar Pr</NavLink></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/registrarRutinas">Registrar runinas</NavLink></li>   
         </ul>
     </nav>
   )
