@@ -7,6 +7,7 @@ const RegistrarRutina = () => {
     const {register,handleSubmit,reset} = useForm();
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
+    const [nombreRutina, setNombreRutina] = useState(false);
     // const [enviado, setEnviado] = useState(false);
 
     const obtenerValores=(data)=>{
@@ -15,8 +16,8 @@ const RegistrarRutina = () => {
     }
 
     const crearRutina=()=>{
-
-        setNuevaRutina(true)
+        setNombreRutina(true)
+        // setNuevaRutina(true)
     }
 
     const cancelarRutina=()=>{
@@ -31,15 +32,24 @@ const RegistrarRutina = () => {
     <div className='Pr-padre'>
     <Nav></Nav>
 
-    <GuardarRutina></GuardarRutina>
+    {/* <GuardarRutina></GuardarRutina> */}
 
         <div className='container-rutinas'>
         <h1>Rutinas:</h1>
         <button className='boton-rutinas' onClick={crearRutina}>Crear Rutina</button>
         </div>
 
+
         {
-           nuevaRutina
+           nombreRutina
+           ?
+           <GuardarRutina></GuardarRutina>
+           :
+           null 
+        }
+
+        {
+           nombreRutina && nuevaRutina
            ? 
            <div className='tabla-nueva-rutina'>
 
