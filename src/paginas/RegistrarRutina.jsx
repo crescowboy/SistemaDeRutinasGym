@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Nav from '../Nav'
 import { useForm } from 'react-hook-form';
+import GuardarRutina from './GuardarRutina';
 
 const RegistrarRutina = () => {
     const {register,handleSubmit,reset} = useForm();
@@ -30,6 +31,7 @@ const RegistrarRutina = () => {
     <div className='Pr-padre'>
     <Nav></Nav>
 
+    <GuardarRutina></GuardarRutina>
 
         <div className='container-rutinas'>
         <h1>Rutinas:</h1>
@@ -51,13 +53,13 @@ const RegistrarRutina = () => {
                     } />
                 
                 <label htmlFor="series">Series:</label>
-                 <input type="text" id='series' 
+                 <input type="number" id='series' 
                     {
                         ...register('series')
                     } />
                 
                 <label htmlFor="repeticiones">Repeticiones:</label>
-                <input type="text" id='repeticiones' 
+                <input type="number" id='repeticiones' 
                     {
                         ...register('repeticiones')
                     } />
