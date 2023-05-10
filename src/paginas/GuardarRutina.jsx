@@ -5,15 +5,17 @@ import {Contexto} from '../context/Contexto';
 const GuardarRutina = () => {
 
     const {register,handleSubmit,reset} = useForm();
-    const {cancelarNombreRutina,setCancelarNombreRutina} = useContext(Contexto);
+    const {cancelarNombreRutina,setCancelarNombreRutina,
+           agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
     const cancelar =()=>{
         setCancelarNombreRutina(false)
     }
     
     const obtenerValores =(data)=>{
         console.table(data)
+        setAgregarEjercicio(true)
         reset()
-        // setCancelarNombreRutina(false)
+        
     }
 
   return (

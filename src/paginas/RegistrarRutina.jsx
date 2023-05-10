@@ -6,11 +6,11 @@ import {Contexto} from '../context/Contexto';
 
 const RegistrarRutina = () => {
     const {register,handleSubmit,reset} = useForm();
-    const {cancelarNombreRutina,setCancelarNombreRutina} = useContext(Contexto);
+    const {cancelarNombreRutina,setCancelarNombreRutina,
+            agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
     const [nombreRutina, setNombreRutina] = useState(false);
-    // const [enviado, setEnviado] = useState(false);
 
     const obtenerValores=(data)=>{
         console.table(data)
@@ -20,12 +20,11 @@ const RegistrarRutina = () => {
     const crearRutina=()=>{
         setNombreRutina(true)
         setCancelarNombreRutina(true)
-        // setNuevaRutina(true)
     }
 
     const cancelarRutina=()=>{
-        if (nuevaRutina) {
-            setNuevaRutina(false);
+        if (agregarEjercicio) {
+            setAgregarEjercicio(false);
           }
         
     }
@@ -52,7 +51,7 @@ const RegistrarRutina = () => {
         }
 
         {
-           nombreRutina && nuevaRutina
+           agregarEjercicio===true
            ? 
            <div className='tabla-nueva-rutina'>
 
