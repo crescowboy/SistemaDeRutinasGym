@@ -5,7 +5,7 @@ import GuardarRutina from './GuardarRutina';
 import {Contexto} from '../context/Contexto';
 
 const RegistrarRutina = () => {
-    const {register,handleSubmit,reset} = useForm();
+    const {register,handleSubmit,reset,formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
             agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
     const [nuevaRutina, setNuevaRutina] = useState(false);
@@ -59,10 +59,18 @@ const RegistrarRutina = () => {
 
                     <label htmlFor="ejercicio">Ejercico:</label>
             
-                     <input type="text" id='ejercicio'
-                    {
-                        ...register('ejercicio')
-                    } />
+                     <input
+        type="text"
+        id="ejercicio"
+        {...register('ejercicio', {
+          required: 'Este campo es requerido',
+          pattern: {
+            value: /^[a-zA-Z\s]*$/,
+            message: 'Este campo solo permite letras y espacios',
+          },
+        })}
+      />
+      {errors.ejercicio && <span>{errors.ejercicio.message}</span>}
                 
                 <label htmlFor="series">Series:</label>
                  <input type="number" id='series' 
