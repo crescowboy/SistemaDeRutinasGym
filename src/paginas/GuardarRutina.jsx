@@ -9,6 +9,8 @@ const GuardarRutina = () => {
            agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
     const cancelar =()=>{
         setCancelarNombreRutina(false)
+        setAgregarEjercicio(false)
+        reset()
     }
     
     const obtenerValores =(data)=>{

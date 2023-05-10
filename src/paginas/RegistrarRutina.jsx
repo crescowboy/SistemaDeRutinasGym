@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Nav from '../Nav'
 import { useForm } from 'react-hook-form';
 import GuardarRutina from './GuardarRutina';
@@ -11,6 +11,10 @@ const RegistrarRutina = () => {
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
     const [nombreRutina, setNombreRutina] = useState(false);
+
+    useEffect(() => {
+      setAgregarEjercicio(false); // Restablecer agregarEjercicio a false cuando el componente se monta o cambia la ubicación del "nav"
+    }, []);
 
     const obtenerValores=(data)=>{
         console.table(data)
@@ -34,7 +38,7 @@ const RegistrarRutina = () => {
     <div className='Pr-padre'>
     <Nav></Nav>
 
-    {/* <GuardarRutina></GuardarRutina> */}
+    
 
         <div className='container-rutinas'>
         <h1>Rutinas:</h1>
@@ -43,7 +47,7 @@ const RegistrarRutina = () => {
 
 
         {
-           nombreRutina
+           nombreRutina === true
            ?
            <GuardarRutina></GuardarRutina>
            :

@@ -3,7 +3,7 @@ import { Contexto } from './Contexto';
 
 const Provider = ({children}) => {
 
-  const [cancelarNombreRutina,setCancelarNombreRutina] = useState(true);
+  const [cancelarNombreRutina,setCancelarNombreRutina] = useState(false);
   const [agregarEjercicio, setAgregarEjercicio] = useState(false)
 
   return (
