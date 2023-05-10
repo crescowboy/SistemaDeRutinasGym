@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Contexto } from './Contexto';
 
-const Provider = () => {
+const Provider = ({children}) => {
+
+  const [cancelarNombreRutina,setCancelarNombreRutina] = useState(true);
+
   return (
-    <div>
-      
-    </div>
+    <Contexto.Provider value={{
+      cancelarNombreRutina,
+      setCancelarNombreRutina}}>
+      {children}
+    </Contexto.Provider>
   )
 }
 

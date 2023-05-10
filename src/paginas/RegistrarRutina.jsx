@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from '../Nav'
 import { useForm } from 'react-hook-form';
 import GuardarRutina from './GuardarRutina';
+import {Contexto} from '../context/Contexto';
 
 const RegistrarRutina = () => {
     const {register,handleSubmit,reset} = useForm();
+    const {cancelarNombreRutina,setCancelarNombreRutina} = useContext(Contexto);
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
     const [nombreRutina, setNombreRutina] = useState(false);
@@ -17,6 +19,7 @@ const RegistrarRutina = () => {
 
     const crearRutina=()=>{
         setNombreRutina(true)
+        setCancelarNombreRutina(true)
         // setNuevaRutina(true)
     }
 
