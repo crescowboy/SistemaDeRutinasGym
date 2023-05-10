@@ -4,7 +4,7 @@ import {Contexto} from '../context/Contexto';
 
 const GuardarRutina = () => {
 
-    const {register,handleSubmit,reset} = useForm();
+    const {register,handleSubmit,reset, formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
            agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
     const cancelar =()=>{
@@ -31,9 +31,14 @@ const GuardarRutina = () => {
             <label htmlFor="nombre">Nombre de rutina: </label>
             <input type="text" id='nombre'
             {
-                ...register('nombre')
+                ...register('nombre',
+                {
+                    required: 'Este campo es requerido'
+                })
             }
             />
+
+            {errors.nombre && <span>{errors.nombre.message}</span>}
             <div className='botones-nueva-rutina'>
             <button className='boton-rutinas' type='submit'>Guardar</button>
             <button className='boton-rutinas' type='button' onClick={cancelar}>Cancelar</button>

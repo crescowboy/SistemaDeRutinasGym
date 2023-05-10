@@ -30,7 +30,7 @@ const RegistrarRutina = () => {
         if (agregarEjercicio) {
             setAgregarEjercicio(false);
           }
-        
+        reset()
     }
 
   return (
@@ -79,14 +79,23 @@ const RegistrarRutina = () => {
                 <label htmlFor="series">Series:</label>
                  <input type="number" id='series' 
                     {
-                        ...register('series')
+                        ...register('series',
+                        {
+                          required: 'Este campo es requerido'
+                        })
                     } />
+
+                  {errors.series && <span>{errors.series.message}</span>}
                 
                 <label htmlFor="repeticiones">Repeticiones:</label>
                 <input type="number" id='repeticiones' 
                     {
-                        ...register('repeticiones')
+                        ...register('repeticiones',
+                        {
+                          required: 'Este campo es requerido'
+                        })
                     } />
+                  {errors.repeticiones && <span>{errors.repeticiones.message}</span>}
              
             <div className='botones-nueva-rutina'>
             <button type='submit' className='boton-rutinas' >Guardar</button>
