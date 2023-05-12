@@ -17,6 +17,7 @@ const Nav = () => {
         } to="/registrarPr">Registrar Pr</NavLink></li>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/registrarRutinas">Registrar runinas</NavLink></li>   
+        <li><NavLink to="/misRutinas">Mis Rutinas</NavLink></li>
         </ul>
     </nav>
   )

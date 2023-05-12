@@ -74,7 +74,7 @@ const RegistrarRutina = () => {
           },
         })}
       />
-      {errors.ejercicio && <span>{errors.ejercicio.message}</span>}
+      {errors.ejercicio && <div className='error'>{errors.ejercicio.message}</div>}
                 
                 <label htmlFor="series">Series:</label>
                  <input type="number" id='series' 
@@ -85,7 +85,7 @@ const RegistrarRutina = () => {
                         })
                     } />
 
-                  {errors.series && <span>{errors.series.message}</span>}
+                  {errors.series && <div className='error'>{errors.series.message}</div>}
                 
                 <label htmlFor="repeticiones">Repeticiones:</label>
                 <input type="number" id='repeticiones' 
@@ -95,7 +95,7 @@ const RegistrarRutina = () => {
                           required: 'Este campo es requerido'
                         })
                     } />
-                  {errors.repeticiones && <span>{errors.repeticiones.message}</span>}
+                  {errors.repeticiones && <div className='error'>{errors.repeticiones.message}</div>}
              
             <div className='botones-nueva-rutina'>
             <button type='submit' className='boton-rutinas' >Guardar</button>

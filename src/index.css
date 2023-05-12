@@ -342,3 +342,11 @@
 .container-rutina-nombre label{
   color: white;
 }
+
+.error{
+  background-color: red;
+  color: white;
+  width: 200px;
+  border-radius: 5px;
+  padding: 5px 15px;
+}

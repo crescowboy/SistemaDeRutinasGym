@@ -7,6 +7,7 @@ const GuardarRutina = () => {
     const {register,handleSubmit,reset, formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
            agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
+    
     const cancelar =()=>{
         setCancelarNombreRutina(false)
         setAgregarEjercicio(false)
@@ -38,7 +39,7 @@ const GuardarRutina = () => {
             }
             />
 
-            {errors.nombre && <span>{errors.nombre.message}</span>}
+            {errors.nombre && <span className='error'>{errors.nombre.message}</span>}
             <div className='botones-nueva-rutina'>
             <button className='boton-rutinas' type='submit'>Guardar</button>
             <button className='boton-rutinas' type='button' onClick={cancelar}>Cancelar</button>

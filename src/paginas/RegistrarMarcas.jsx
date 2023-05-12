@@ -96,6 +96,7 @@ const RegistrarMarcas = () => {
 
 
 
+
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
           <input type="number" id='sentadilla' 

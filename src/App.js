@@ -3,6 +3,7 @@ import Home from "./paginas/Home";
 import RegistrarMarcas from "./paginas/RegistrarMarcas";
 import RegistrarRutina from "./paginas/RegistrarRutina";
 import Provider from "./context/Provider";
+import MisRutinas from "./paginas/MisRutinas";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/registrarPr' element={<RegistrarMarcas></RegistrarMarcas>}></Route>
         <Route path="/registrarRutinas" element={<RegistrarRutina></RegistrarRutina>}></Route>
+        <Route path="/misRutinas" element={<MisRutinas></MisRutinas>}></Route>
     </Routes>
     </Provider>
     </>
