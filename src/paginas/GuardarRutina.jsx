@@ -39,7 +39,7 @@ const GuardarRutina = () => {
             }
             />
 
-            {errors.nombre && <span className='error'>{errors.nombre.message}</span>}
+            {errors.nombre && <div className='error'>{errors.nombre.message}</div>}
             <div className='botones-nueva-rutina'>
             <button className='boton-rutinas' type='submit'>Guardar</button>
             <button className='boton-rutinas' type='button' onClick={cancelar}>Cancelar</button>

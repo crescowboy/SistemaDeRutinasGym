@@ -5,13 +5,16 @@ const Provider = ({children}) => {
 
   const [cancelarNombreRutina,setCancelarNombreRutina] = useState(false);
   const [agregarEjercicio, setAgregarEjercicio] = useState(false)
-
+  const [misRutinas,setMisRutinas] = useState(["1","2","3"])
   return (
     <Contexto.Provider value={{
       cancelarNombreRutina,
       setCancelarNombreRutina,
       agregarEjercicio,
-      setAgregarEjercicio}}>
+      setAgregarEjercicio,
+      misRutinas,
+      setMisRutinas
+      }}>
       {children}
     </Contexto.Provider>
   )

@@ -8,6 +8,7 @@ const RegistrarRutina = () => {
     const {register,handleSubmit,reset,formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
             agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
+    const {misRutinas,setMisRutinas} = useContext(Contexto);
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
     const [nombreRutina, setNombreRutina] = useState(false);
@@ -18,6 +19,7 @@ const RegistrarRutina = () => {
 
     const obtenerValores=(data)=>{
         console.table(data)
+        setMisRutinas([data.series])
         reset();
     }
 
@@ -39,7 +41,7 @@ const RegistrarRutina = () => {
     <Nav></Nav>
 
     
-
+<div className='Registrar-rutinas-padre'>
         <div className='container-rutinas'>
         <h1>Rutinas:</h1>
         <button className='boton-rutinas' onClick={crearRutina}>Crear Rutina</button>
@@ -76,8 +78,8 @@ const RegistrarRutina = () => {
       />
       {errors.ejercicio && <div className='error'>{errors.ejercicio.message}</div>}
                 
-                <label htmlFor="series">Series:</label>
-                 <input type="number" id='series' 
+      <label htmlFor="repeticiones">Series:</label>
+                <input type="number" id='series' 
                     {
                         ...register('series',
                         {
@@ -106,6 +108,7 @@ const RegistrarRutina = () => {
            </div>
            :null 
         }
+    </div>
     </div>
     </>
   )
