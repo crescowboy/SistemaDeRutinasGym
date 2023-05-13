@@ -7,16 +7,23 @@ const MisRutinas = () => {
   const titulos = ["Ejercicio", "Series", "Repeticiones"]
   return (
     <>
+    <div className='container-misRutinas-padre'>
         <Nav></Nav>
+        <div className='container-misRutinas-hijo'>
         <h1>Mis rutinas: </h1>
+        <div className='tabla-misRutinas'>
       {misRutinas.map((item, index) => (
-        <div className='tabla-nueva-rutina' key={index}>
+        
+        <div className='fila-misRutinas' key={index}>
           <h4>{titulos[index % titulos.length]}: {item}</h4>
           {/* <ul>
             <li>{item}</li>
           </ul> */}
         </div>
         ))}
+        </div>
+        </div>
+        </div>
     </>
   )
 }
