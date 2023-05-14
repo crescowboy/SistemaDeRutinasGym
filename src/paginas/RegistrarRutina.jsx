@@ -19,7 +19,11 @@ const RegistrarRutina = () => {
 
     const obtenerValores=(data)=>{
         console.table(data)
-        setMisRutinas([data.ejercicio,data.series,data.repeticiones])
+        setMisRutinas([...misRutinas, {
+          ejercicio: data.ejercicio,
+          series: data.series,
+          repeticiones: data.repeticiones
+        }]);
         reset();
     }
 

@@ -3,7 +3,8 @@ import Nav from '../Nav'
 import { Contexto } from '../context/Contexto'
 
 const MisRutinas = () => {
-  const {misRutinas,setMisRutinas} = useContext(Contexto);
+  const {misRutinas,setMisRutinas,objetoMisRutinas,setObjetoMisRutinas} = useContext(Contexto);
+  
   const titulos = ["Ejercicio", "Series", "Repeticiones"]
   return (
     <>
@@ -15,10 +16,11 @@ const MisRutinas = () => {
       {misRutinas.map((item, index) => (
         
         <div className='fila-misRutinas' key={index}>
-          <h4>{titulos[index % titulos.length]}: {item}</h4>
-          {/* <ul>
-            <li>{item}</li>
-          </ul> */}
+          <li key={index}>
+            Ejercicio: {item.ejercicio}, Series: {item.series}, Repeticiones: {item.repeticiones}
+          </li>
+          <button>eliminar</button>
+          <button>Editar</button>
         </div>
         ))}
         </div>
