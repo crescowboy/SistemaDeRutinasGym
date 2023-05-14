@@ -6,13 +6,15 @@ const Provider = ({children}) => {
   const [cancelarNombreRutina,setCancelarNombreRutina] = useState(false);
   const [agregarEjercicio, setAgregarEjercicio] = useState(false)
   const [misRutinas,setMisRutinas] = useState([])
-  const [objetoMisRutinas,setObjetoMisRutinas] = useState([
-    {
-      ejercicio: "",
-      series: "",
-      Repeticiones: ""
-    }
-  ]);
+  const [nombreRutina,setNombreRutina] = useState([]);
+  
+  // const [objetoMisRutinas,setObjetoMisRutinas] = useState([
+  //   {
+  //     ejercicio: "",
+  //     series: "",
+  //     Repeticiones: ""
+  //   }
+  // ]);
   return (
     <Contexto.Provider value={{
       cancelarNombreRutina,
@@ -21,8 +23,10 @@ const Provider = ({children}) => {
       setAgregarEjercicio,
       misRutinas,
       setMisRutinas,
-      objetoMisRutinas,
-      setObjetoMisRutinas
+      nombreRutina,
+      setNombreRutina
+      // objetoMisRutinas,
+      // setObjetoMisRutinas
       }}>
       {children}
     </Contexto.Provider>

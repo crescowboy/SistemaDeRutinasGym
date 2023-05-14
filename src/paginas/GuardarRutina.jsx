@@ -7,6 +7,7 @@ const GuardarRutina = () => {
     const {register,handleSubmit,reset, formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
            agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
+    const {nombreRutina,setNombreRutina,misRutinas,setMisRutinas} = useContext(Contexto);
     
     const cancelar =()=>{
         setCancelarNombreRutina(false)
@@ -17,6 +18,18 @@ const GuardarRutina = () => {
     const obtenerValores =(data)=>{
         console.table(data)
         setAgregarEjercicio(true)
+
+        setNombreRutina([...nombreRutina,
+        {
+            nombre: data.nombre
+        }
+        ])
+
+        setMisRutinas([...misRutinas,
+        {
+            nombre: data.nombre
+        }
+        ])
         reset()
         
     }
