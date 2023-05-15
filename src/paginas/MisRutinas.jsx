@@ -24,8 +24,8 @@ const MisRutinas = () => {
                         <li>
                           Ejercicio: {rutina.ejercicio}, Series: {rutina.series}, Repeticiones: {rutina.repeticiones}
                         </li>
-                        <button>eliminar</button>
-                        <button>Editar</button>
+                        <button className='boton-eliminar'>eliminar</button>
+                        <button className='boton-editar'>Editar</button>
                         </>
                       )
                         
