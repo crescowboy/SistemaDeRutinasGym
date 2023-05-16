@@ -3,6 +3,7 @@ import Nav from '../Nav'
 import { useForm } from 'react-hook-form';
 import GuardarRutina from './GuardarRutina';
 import {Contexto} from '../context/Contexto';
+import BotonAgregarEjercicio from './BotonAgregarEjercicio';
 
 const RegistrarRutina = () => {
     const {register,handleSubmit,reset,formState:{errors}} = useForm();
@@ -115,6 +116,7 @@ const RegistrarRutina = () => {
             <div className='botones-nueva-rutina'>
             <button type='submit' className='boton-rutinas' >Guardar</button>
             <button type='button' className='boton-rutinas' onClick={cancelarRutina}>Cancelar</button>
+            <BotonAgregarEjercicio></BotonAgregarEjercicio>
             </div>
 
             </form>

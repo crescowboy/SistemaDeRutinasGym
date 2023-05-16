@@ -413,3 +413,15 @@
 .msg-rutinas{
   color: white;
 }
+
+.boton-agrega-Ejercicio{
+  background-color: #007bff;
+  width: 200px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
