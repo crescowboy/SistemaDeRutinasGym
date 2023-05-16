@@ -8,10 +8,10 @@ const RegistrarRutina = () => {
     const {register,handleSubmit,reset,formState:{errors}} = useForm();
     const {cancelarNombreRutina,setCancelarNombreRutina,
             agregarEjercicio, setAgregarEjercicio} = useContext(Contexto);
-    const {misRutinas,setMisRutinas} = useContext(Contexto);
+    const {misRutinas,setMisRutinas,nombreRutina,setNombreRutina} = useContext(Contexto);
     const [nuevaRutina, setNuevaRutina] = useState(false);
     const [rutinaCreada, setRutinaCresda] = useState(false);
-    const [nombreRutina, setNombreRutina] = useState(false);
+    const [nombreRutinaMostrar, setNombreRutinaMostrar] = useState(false);
 
     useEffect(() => {
       setAgregarEjercicio(false); // Restablecer agregarEjercicio a false cuando el componente se monta o cambia la ubicación del "nav"
@@ -19,16 +19,25 @@ const RegistrarRutina = () => {
 
     const obtenerValores=(data)=>{
         console.table(data)
-        setMisRutinas([...misRutinas, {
-          ejercicio: data.ejercicio,
-          series: data.series,
-          repeticiones: data.repeticiones
-        }]);
+        const nombreRutinaActual = nombreRutina[nombreRutina.length - 1]; // Obtener el último objeto de nombreRutina
+  const nombreRutinaSeleccionado = nombreRutinaActual.nombre; // Acceder a la propiedad deseada
+
+  setMisRutinas([
+    ...misRutinas,
+    {
+      nombre: nombreRutinaSeleccionado,
+      ejercicio: data.ejercicio,
+      series: data.series,
+      repeticiones: data.repeticiones
+    }
+  ]);
+
+        console.log(misRutinas)
         reset();
     }
 
     const crearRutina=()=>{
-        setNombreRutina(true)
+        setNombreRutinaMostrar(true)
         setCancelarNombreRutina(true)
     }
 
@@ -53,7 +62,7 @@ const RegistrarRutina = () => {
 
 
         {
-           nombreRutina === true
+           nombreRutinaMostrar === true
            ?
            <GuardarRutina></GuardarRutina>
            :

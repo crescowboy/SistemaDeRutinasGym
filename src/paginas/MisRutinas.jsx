@@ -19,7 +19,9 @@ const MisRutinas = () => {
               {misRutinas.map((rutina, index) => (
                 <div className='fila-misRutinas' key={index}>
                   
-                    <>
+                    
+                      
+                      <>
                       <h2>{rutina.nombre}</h2>
                       <li>
                         Ejercicio: {rutina.ejercicio}, Series: {rutina.series}, Repeticiones: {rutina.repeticiones}

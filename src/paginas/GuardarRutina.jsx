@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Contexto } from '../context/Contexto';
 
@@ -13,19 +13,23 @@ const GuardarRutina = () => {
     reset();
   };
 
-  const obtenerValores = (data, index) => {
-    console.table(data);
+  useEffect(() => {
+    console.log(nombreRutina);
+  }, [nombreRutina]);
+
+  const obtenerValores = (data) => {
+    // console.table(data);
+    // console.log(misRutinas)
+    
     setAgregarEjercicio(true);
 
-    const objetoActualizado = { ...misRutinas[index], nombre: data.nombre };
-    const misRutinasActualizadas = [...misRutinas];
-    misRutinasActualizadas[index] = objetoActualizado;
-    setMisRutinas(misRutinasActualizadas);
+    setNombreRutina([...nombreRutina, { nombre: data.nombre }]);
+  console.log(nombreRutina);
 
     // setMisRutinas([
     //   ...misRutinas,
     //   {
-    //     nombre: data.ejercicio
+    //     nombre: data.nombre
     //   }
     // ]);
     reset();
@@ -37,7 +41,7 @@ const GuardarRutina = () => {
     <>
       {cancelarNombreRutina === true ? (
         <div className='tabla-nueva-rutina'>
-          <form onSubmit={handleSubmit((data) => obtenerValores(data, indice))}>
+          <form onSubmit={handleSubmit(obtenerValores)}>
             <label htmlFor='nombre'>Nombre de rutina: </label>
             <input
               type='text'
