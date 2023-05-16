@@ -18,7 +18,7 @@ const MisRutinas = () => {
             <div className='tabla-misRutinas'>
               {misRutinas.map((rutina, index) => (
                 <div className='fila-misRutinas' key={index}>
-                  {rutina.ejercicio && rutina.nombre && (
+                  
                     <>
                       <h2>{rutina.nombre}</h2>
                       <li>
@@ -27,12 +27,12 @@ const MisRutinas = () => {
                       <button className='boton-eliminar'>eliminar</button>
                       <button className='boton-editar'>agregar</button>
                     </>
-                  )}
+                  
                 </div>
               ))}
             </div>
           ) : (
-            <p>No hay rutinas disponibles</p>
+            <p className='msg-rutinas'>No hay rutinas disponibles</p>
           )}
         </div>
       </div>
