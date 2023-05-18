@@ -51,9 +51,9 @@ const RegistrarRutina = () => {
         <div className="container-misRutinas-hijo">
           <h1>Registrar rutina</h1>
           <form onSubmit={handleSubmit}>
-            <div className="tabla-nueva-rutina">
-            <div className="tabla-nombre-rutina">
-              <label htmlFor="nombreRutina">Nombre de la rutina</label>
+            <div className="tabla-Registrar-Rutina">
+            <div className="input-nombre-rutina">
+              <label htmlFor="nombreRutina">Nombre de la rutina:</label>
               <input
                 type="text"
                 id="nombreRutina"
