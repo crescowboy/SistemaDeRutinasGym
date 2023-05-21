@@ -58,10 +58,11 @@ const RegistrarRutina = () => {
                 type="text"
                 id="nombreRutina"
                 name="nombreRutina"
+                required
                 value={nombreRutina}
                 onChange={handleChangeNombreRutina}
               />
-              {error && <span className="error-msg">Ingrese un nombre para la rutina</span>}
+              {error && <span className="error">Ingrese un nombre para la rutina</span>}
             </div>
             <div className=".tabla-misRutinas">
               <label htmlFor="ejercicios">Ejercicios</label>
@@ -71,13 +72,17 @@ const RegistrarRutina = () => {
                     type="text"
                     name="ejercicio"
                     placeholder="Nombre del ejercicio"
+                    required
                     value={ejercicio.ejercicio}
                     onChange={(e) => handleChangeEjercicios(index, e)}
+                    pattern="[A-Za-z\s]+"
+                    title="Ingresa solo caracteres de texto"
                   />
                   <input
                     type="number"
                     name="series"
                     placeholder="Series"
+                    required
                     value={ejercicio.series}
                     onChange={(e) => handleChangeEjercicios(index, e)}
                   />
@@ -85,6 +90,7 @@ const RegistrarRutina = () => {
                     type="number"
                     name="repeticiones"
                     placeholder="Repeticiones"
+                    required
                     value={ejercicio.repeticiones}
                     onChange={(e) => handleChangeEjercicios(index, e)}
                   />
