@@ -18,6 +18,7 @@ const Nav = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/registrarRutinas">Registrar runinas</NavLink></li>   
         <li><NavLink to="/misRutinas">Mis Rutinas</NavLink></li>
+        <li><NavLink to="/guiaEjercicios">Guia</NavLink></li>
         </ul>
     </nav>
   )

@@ -3,7 +3,6 @@ import Nav from '../Nav'
 import { useForm } from 'react-hook-form';
 import GuardarRutina from './GuardarRutina';
 import {Contexto} from '../context/Contexto';
-import BotonAgregarEjercicio from './BotonAgregarEjercicio';
 
 const RegistrarRutina = () => {
   const { misRutinas, setMisRutinas } = useContext(Contexto);
