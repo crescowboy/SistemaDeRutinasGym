@@ -495,3 +495,28 @@
 .input-nombre-rutina input[type="text"]{
   margin-left: 5px;
 }
+
+/* GUIA  */
+
+.container-guiaRutina-padre{
+  background-color: #1C2128;
+  height: 100vh;
+}
+
+.container-guiaRutina-padre h1{
+  color: white;
+}
+
+.container-card{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-right: 5px;
+}
