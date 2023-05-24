@@ -11,15 +11,15 @@ const GuiaEjercicios = () => {
     <div className='container-card'>
       <div className="card">
         <h3>ganar musculo</h3>
-        <button>Ver mas</button>
+        <button className='btn-ver'>Ver mas</button>
       </div>
       <div className="card">
       <h3>Perder garsa</h3>
-      <button>Ver mas</button>
+      <button className='btn-ver'>Ver mas</button>
       </div>
       <div className="card">
       <h3>Ganar Resistencia</h3>
-      <button>Ver mas</button>
+      <button className='btn-ver'>Ver mas</button>
       </div>
     </div>
     
