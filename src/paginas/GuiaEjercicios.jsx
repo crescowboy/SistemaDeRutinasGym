@@ -106,7 +106,17 @@ const GuiaEjercicios = () => {
           </div>
         </div>
 
-        <Modal isOpen={showModal} onRequestClose={closeModal}>
+        <Modal isOpen={showModal} onRequestClose={closeModal}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)' // Cambia el color de fondo del overlay del modal
+          },
+          content: {
+            background: '#2D333B', // Cambia el color de fondo del contenido del modal
+            // Agrega aquí otros estilos deseados para el contenido del modal
+          }
+        }}
+        >
           {modalContent}
           <button className="btn-ver" onClick={closeModal}>Cerrar</button>
         </Modal>
