@@ -551,3 +551,16 @@
   margin-bottom: 40px;
 }
 
+/* MODAL GUIA */
+.modal-guia ul, li{
+  padding: 10px;
+}
+
+.modal-guia li{
+  
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+

@@ -24,7 +24,7 @@ const GuiaEjercicios = () => {
 
   const infoMusculo = () => {
     const content = (
-      <div>
+      <div className='modal-guia'>
         <h4>Recomendaciones para ganar músculo:</h4>
         <ul>
           <li>Realiza entrenamientos de fuerza con pesas o máquinas.</li>
@@ -44,7 +44,7 @@ const GuiaEjercicios = () => {
 
   const infoGrasa = () => {
     const content = (
-      <div>
+      <div className='modal-guia'>
         <h4>Recomendaciones para perder grasa:</h4>
         <ul>
           <li>Realiza una combinación de entrenamiento cardiovascular y entrenamiento de fuerza.</li>
@@ -64,7 +64,7 @@ const GuiaEjercicios = () => {
 
   const infoResistencia = () => {
     const content = (
-      <div>
+      <div className='modal-guia'>
         <h4>Recomendaciones para ganar resistencia:</h4>
         <ul>
           <li>Realiza entrenamientos cardiovasculares regulares, como correr, nadar o andar en bicicleta.</li>
