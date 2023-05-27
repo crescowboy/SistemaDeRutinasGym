@@ -391,11 +391,20 @@
   border-radius: 5px;
 }
 
-.fila-misRutinas{
+.tabla-misRutinas li{
   border: 1px solid black;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.fila-misRutinas{
+  border: 1px gray solid;
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+
 }
 
 .boton-eliminar{
@@ -405,6 +414,10 @@
   background-color: red;
   border: none;
   cursor: pointer;
+}
+
+.boton-eliminar:hover{
+  background-color: rgb(208, 0, 0);
 }
 
 .boton-editar{
