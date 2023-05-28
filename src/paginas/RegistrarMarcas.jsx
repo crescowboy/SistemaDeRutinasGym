@@ -72,6 +72,14 @@ const RegistrarMarcas = () => {
   reset();
   }
 
+  const eliminarMarcas = (index) =>{
+    const updatedValores = [...valores];
+    updatedValores.splice(index, 1);
+    setValores(updatedValores);
+    localStorage.setItem('valores', JSON.stringify(updatedValores));
+    reset();
+  }
+
   
   return (
     <>
@@ -158,6 +166,7 @@ const RegistrarMarcas = () => {
 
         <div className='boton-marcas'>
           <input type="submit" value="Registrar"/>
+          <button type='button' onClick={eliminarMarcas}>Eliminar valores</button>
         </div>
         </div>
       </div>
