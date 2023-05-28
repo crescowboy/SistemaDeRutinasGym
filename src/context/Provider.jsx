@@ -8,6 +8,8 @@ const Provider = ({children}) => {
   const [misRutinas,setMisRutinas] = useState([])
   const [nombreRutina,setNombreRutina] = useState([]);
   const [rutinaGuardada,setRutinaGuardada] = useState(false);
+  const [valores,setValores] = useState([]);
+  const [estado,setEstado] = useState(false);
   
   // const [objetoMisRutinas,setObjetoMisRutinas] = useState([
   //   {
@@ -27,7 +29,11 @@ const Provider = ({children}) => {
       nombreRutina,
       setNombreRutina,
       rutinaGuardada,
-      setRutinaGuardada
+      setRutinaGuardada,
+      valores,
+      setValores,
+      estado,
+      setEstado
       // objetoMisRutinas,
       // setObjetoMisRutinas
       }}>

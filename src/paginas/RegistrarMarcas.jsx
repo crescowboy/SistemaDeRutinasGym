@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { pr } from '../data/datos';
 import Nav from '../Nav';
+import { Contexto } from '../context/Contexto';
 
 
 
@@ -10,11 +11,23 @@ import Nav from '../Nav';
 
 const RegistrarMarcas = () => {
   const {register,handleSubmit,formState:{errors}, reset} = useForm();
-  const [valores,setValores] = useState([]);
-  const [estado,setEstado] = useState(false);
-
-
+  const {valores,setValores,estado,setEstado} = useContext(Contexto);
   
+
+
+  useEffect(() => {
+    // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
+    const storedRutinas = localStorage.getItem('valores');
+    if (storedRutinas) {
+      setValores(JSON.parse(storedRutinas));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Almacenar las rutinas en localStorage cuando se actualicen
+    localStorage.setItem('valores', JSON.stringify(valores));
+  }, [valores]);
+
 
   const obtenerValores =(data)=>{
     console.table(data);
@@ -51,7 +64,11 @@ const RegistrarMarcas = () => {
     setValores([...valores, data]);
   }
 
-  setEstado(true);
+  if (valores.length > 0) {
+    setEstado(true);
+  }
+
+  
   reset();
   }
 
@@ -149,95 +166,96 @@ const RegistrarMarcas = () => {
 
      
       {
-      estado === false
+        valores.length > 0
+      // estado === false
       ?
 
-      <div className='mostrarPr' >
-            
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                <div className=''><span>---</span>
-                  
-                  </div>
-                  <div>kg</div>
-                  <div>Press Banca</div>
-              </div>
-            </div>
 
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                  <div className=''><span>---</span>
-                  
-                  </div>
-                  <div>kg</div>
-                  <div>Sentadilla</div>
-              </div>
+      valores.map((valor,index)=>(
+        <div className='mostrarPr' key={index}>
+          
+          <div className='ejercicioPr1'>
+            <div className='ejercicioPr'>
+              <div className=''>{valor.banca
+                ? valor.banca
+                : <span>---</span>
+                }
+                </div>
+                <div>kg</div>
+                <div>Press Banca</div>
             </div>
-
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                  <div className=''>
-                  <span>---</span>
-                  </div>
-                  <div>kg</div>
-                  <div>Peso muerto</div>
-              </div>
-            </div>
-            
-            
           </div>
 
-
-
-       
-        
-        
-        :
-        valores.map((valor,index)=>(
-          <div className='mostrarPr' key={index}>
-            
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                <div className=''>{valor.banca
-                  ? valor.banca
-                  : <span>---</span>
-                  }
-                  </div>
-                  <div>kg</div>
-                  <div>Press Banca</div>
-              </div>
+          <div className='ejercicioPr1'>
+            <div className='ejercicioPr'>
+                <div className=''>{valor.sentadilla
+                ? valor.sentadilla
+                :<span>---</span>
+                }
+                </div>
+                <div>kg</div>
+                <div>Sentadilla</div>
             </div>
+          </div>
 
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                  <div className=''>{valor.sentadilla
-                  ? valor.sentadilla
-                  :<span>---</span>
-                  }
-                  </div>
-                  <div>kg</div>
-                  <div>Sentadilla</div>
-              </div>
+          <div className='ejercicioPr1'>
+            <div className='ejercicioPr'>
+                <div className=''>{valor.pesoMuerto 
+                ? valor.pesoMuerto
+                :
+                <span>---</span>}
+                </div>
+                <div>kg</div>
+                <div>Peso muerto</div>
             </div>
-
-            <div className='ejercicioPr1'>
-              <div className='ejercicioPr'>
-                  <div className=''>{valor.pesoMuerto 
-                  ? valor.pesoMuerto
-                  :
-                  <span>---</span>}
-                  </div>
-                  <div>kg</div>
-                  <div>Peso muerto</div>
-              </div>
-            </div>
-            
-            
           </div>
           
-        ))
-      }
-      </div>
+          
+        </div>
+        
+      ))
+
+
+        
+        :
+
+            <div className='mostrarPr' >
+                
+                <div className='ejercicioPr1'>
+                  <div className='ejercicioPr'>
+                    <div className=''><span>---</span>
+                      
+                      </div>
+                      <div>kg</div>
+                      <div>Press Banca</div>
+                  </div>
+                </div>
+
+                <div className='ejercicioPr1'>
+                  <div className='ejercicioPr'>
+                      <div className=''><span>---</span>
+                      
+                      </div>
+                      <div>kg</div>
+                      <div>Sentadilla</div>
+                  </div>
+                </div>
+
+                <div className='ejercicioPr1'>
+                  <div className='ejercicioPr'>
+                      <div className=''>
+                      <span>---</span>
+                      </div>
+                      <div>kg</div>
+                      <div>Peso muerto</div>
+                  </div>
+                </div>
+                
+                
+              </div>
+            
+          }
+          </div>
     </>
   )
 }

@@ -1,11 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import Nav from '../Nav'
 import { Contexto } from '../context/Contexto'
 
 const MisRutinas = () => {
   const { misRutinas,setMisRutinas } = useContext(Contexto);
 
-  
+  useEffect(() => {
+    // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
+    const storedRutinas = localStorage.getItem('misRutinas');
+    if (storedRutinas) {
+      setMisRutinas(JSON.parse(storedRutinas));
+    }
+  }, []);
 
   const handleEliminarRutina = (index) => {
     const updatedRutinas = [...misRutinas];
