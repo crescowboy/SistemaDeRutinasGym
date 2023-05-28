@@ -5,10 +5,13 @@ import { Contexto } from '../context/Contexto'
 const MisRutinas = () => {
   const { misRutinas,setMisRutinas } = useContext(Contexto);
 
+  
+
   const handleEliminarRutina = (index) => {
     const updatedRutinas = [...misRutinas];
     updatedRutinas.splice(index, 1);
     setMisRutinas(updatedRutinas);
+    localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
   };
 
   return (
