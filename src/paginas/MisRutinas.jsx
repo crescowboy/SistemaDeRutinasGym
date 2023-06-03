@@ -29,34 +29,34 @@ const MisRutinas = () => {
 
           {misRutinas.length > 0 ? (
             <div className="tabla-misRutinas">
-            {misRutinas.map((rutina, index) => (
-              <div className="fila-misRutinas" key={index}>
-                <h2 className="nombre-rutina">{rutina.nombre}</h2>
-                <table className="tabla-ejercicios">
-                  <thead>
-                    <tr>
-                      <th>Ejercicio</th>
-                      <th>Series</th>
-                      <th>Repeticiones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rutina.ejercicios.map((ejercicio, i) => (
-                      <tr key={i}>
-                        <td>{ejercicio.ejercicio}</td>
-                        <td>{ejercicio.series}</td>
-                        <td>{ejercicio.repeticiones}</td>
+              {misRutinas.map((rutina, index) => (
+                <div className="fila-misRutinas" key={index}>
+                  <h2 className="nombre-rutina">{rutina.nombre}</h2>
+                  <table className="tabla-ejercicios">
+                    <thead>
+                      <tr>
+                        <th>Ejercicio</th>
+                        <th>Series</th>
+                        <th>Repeticiones</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
-                  Eliminar
-                </button>
-              </div>
-            ))}
-          </div>
-          
+                    </thead>
+                    <tbody>
+                      {rutina.ejercicios.map((ejercicio, i) => (
+                        <tr key={i}>
+                          <td>{ejercicio.ejercicio}</td>
+                          <td>{ejercicio.series}</td>
+                          <td>{ejercicio.repeticiones}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
+                    Eliminar
+                  </button>
+                </div>
+              ))}
+</div>
+
           ) : (
             <p className="msg-rutinas">No hay rutinas disponibles</p>
           )}

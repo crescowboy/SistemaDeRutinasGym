@@ -297,6 +297,7 @@
 }
 .Registrar-rutinas-padre{
   padding: 10px;
+  
 }
 .container-rutinas h1{
   color: white;
@@ -390,6 +391,7 @@
 .container-misRutinas-padre{
   background-color: #1C2128;
   height: 100vh;
+  overflow: auto;
 }
 
 .container-misRutinas-hijo{
@@ -622,7 +624,7 @@
 }
 
 .tabla-ejercicios th {
-  background-color: #f2f2f2;
+  background-color: #c7c7c7;
   font-weight: bold;
   text-align: left;
 }
@@ -637,6 +639,7 @@
   color: white;
   border: none;
   padding: 8px 16px;
+  margin-top: 3px;
   border-radius: 4px;
   cursor: pointer;
 }

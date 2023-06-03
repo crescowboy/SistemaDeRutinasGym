@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../Nav';
 import { useForm } from 'react-hook-form';
 import GuardarRutina from './GuardarRutina';
@@ -56,6 +58,8 @@ const RegistrarRutina = () => {
     setNombreRutina('');
     setEjercicios([{ ejercicio: '', series: '', repeticiones: '' }]);
     setError(false);
+    
+    toast.success('Rutina guardada', { autoClose: 2500 });
   };
 
   return (

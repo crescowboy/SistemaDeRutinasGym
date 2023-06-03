@@ -1,4 +1,6 @@
 import { Route, Router, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from "./paginas/Home";
 import RegistrarMarcas from "./paginas/RegistrarMarcas";
 import RegistrarRutina from "./paginas/RegistrarRutina";
@@ -19,6 +21,7 @@ function App() {
         <Route path="/misRutinas" element={<MisRutinas></MisRutinas>}></Route>
         <Route path="/guiaEjercicios" element={<GuiaEjercicios></GuiaEjercicios>}></Route>
     </Routes>
+    <ToastContainer />
     </Provider>
     </>
   );
