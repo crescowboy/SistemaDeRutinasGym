@@ -27,6 +27,10 @@ const MisRutinas = () => {
         updatedRutinas.splice(index, 1);
         setMisRutinas(updatedRutinas);
         localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
+        Swal.fire({
+          text: "La rutina se a eliminado",
+          icon: 'success', timer: 1500
+        })
       }
     });
   };
