@@ -1,9 +1,10 @@
-import React, { useContext,useEffect } from 'react'
-import Nav from '../Nav'
-import { Contexto } from '../context/Contexto'
+import React, { useContext, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import Nav from '../Nav';
+import { Contexto } from '../context/Contexto';
 
 const MisRutinas = () => {
-  const { misRutinas,setMisRutinas } = useContext(Contexto);
+  const { misRutinas, setMisRutinas } = useContext(Contexto);
 
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
@@ -14,10 +15,20 @@ const MisRutinas = () => {
   }, []);
 
   const handleEliminarRutina = (index) => {
-    const updatedRutinas = [...misRutinas];
-    updatedRutinas.splice(index, 1);
-    setMisRutinas(updatedRutinas);
-    localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
+    Swal.fire({
+      title: '¿Estás seguro de eliminar la rutina?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedRutinas = [...misRutinas];
+        updatedRutinas.splice(index, 1);
+        setMisRutinas(updatedRutinas);
+        localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
+      }
+    });
   };
 
   return (
@@ -55,8 +66,7 @@ const MisRutinas = () => {
                   </button>
                 </div>
               ))}
-</div>
-
+            </div>
           ) : (
             <p className="msg-rutinas">No hay rutinas disponibles</p>
           )}
@@ -65,4 +75,5 @@ const MisRutinas = () => {
     </>
   );
 };
-export default MisRutinas
+
+export default MisRutinas;
