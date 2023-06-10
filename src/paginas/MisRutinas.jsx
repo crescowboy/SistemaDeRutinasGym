@@ -42,9 +42,11 @@ const MisRutinas = () => {
 
 
   const buscarRutina = (e) =>{
+
+    const rutinaBuscada = e.target.value;
     setBuscador(e.target.value);
 
-    const rutinaEncontrada = misRutinas.filter((rutina) => rutina.nombre === e.target.value);
+    const rutinaEncontrada = misRutinas.filter((rutina) => rutina.nombre.toLowerCase().includes(rutinaBuscada.toLowerCase()));
 
     console.log(rutinaEncontrada);
     
@@ -61,11 +63,11 @@ const MisRutinas = () => {
           <h1>Mis rutinas:</h1>
           
           <div className='buscarRutina'>
-          
-            <input type="text" value={buscador} onChange={buscarRutina}/>
-            <div style={{color:"white"}}>
+            <div className='iconoBuscar' >
             <FontAwesomeIcon icon={faMagnifyingGlass} />
             </div>
+            <input type="text" value={buscador} onChange={buscarRutina}/>
+            
           
           </div>
 
@@ -99,7 +101,8 @@ const MisRutinas = () => {
           ))}
         </div>
 
-        
+        // :
+        // <p className="msg-rutinas">No se encuntran resultados</p>
           
           }
 
