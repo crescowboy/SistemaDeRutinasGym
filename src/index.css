@@ -648,4 +648,15 @@
   background-color: #c82333;
 }
 
+.buscarRutina{
+  display: flex;
+  align-items: center;
+}
+
+.buscarRutina input[type="text"]{
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
 

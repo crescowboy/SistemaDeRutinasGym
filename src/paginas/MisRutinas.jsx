@@ -1,10 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import Nav from '../Nav';
 import { Contexto } from '../context/Contexto';
+import { useState } from 'react';
 
 const MisRutinas = () => {
   const { misRutinas, setMisRutinas } = useContext(Contexto);
+  const [buscador,setBuscador] = useState('');
+  const [resultadoEncontrado,setResultadoEncontrado] = useState([])
 
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
@@ -35,12 +40,68 @@ const MisRutinas = () => {
     });
   };
 
+
+  const buscarRutina = (e) =>{
+    setBuscador(e.target.value);
+
+    const rutinaEncontrada = misRutinas.filter((rutina) => rutina.nombre === e.target.value);
+
+    console.log(rutinaEncontrada);
+    
+   
+    
+          setResultadoEncontrado(rutinaEncontrada);
+  }
+
   return (
     <>
       <div className="container-misRutinas-padre">
         <Nav />
         <div className="container-misRutinas-hijo">
           <h1>Mis rutinas:</h1>
+          
+          <div className='buscarRutina'>
+          
+            <input type="text" value={buscador} onChange={buscarRutina}/>
+            <div style={{color:"white"}}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </div>
+          
+          </div>
+
+          {resultadoEncontrado.length > 0 &&
+          <div className="tabla-misRutinas">
+          {resultadoEncontrado.map((rutina, index) => (
+            <div className="fila-misRutinas" key={index}>
+              <h2 className="nombre-rutina">{rutina.nombre}</h2>
+              <table className="tabla-ejercicios">
+                <thead>
+                  <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rutina.ejercicios.map((ejercicio, i) => (
+                    <tr key={i}>
+                      <td>{ejercicio.ejercicio}</td>
+                      <td>{ejercicio.series}</td>
+                      <td>{ejercicio.repeticiones}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
+                Eliminar
+              </button>
+            </div>
+          ))}
+        </div>
+
+        
+          
+          }
 
           {misRutinas.length > 0 ? (
             <div className="tabla-misRutinas">
