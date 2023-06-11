@@ -652,6 +652,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .buscarRutina input[type="text"]{
@@ -661,6 +662,14 @@
   padding-left: 35px;
   width: 150px;
 }
+
+.buscarRutina input[type="text"]:focus {
+  background-color: #f2f2f2;
+  
+  border-color: blue; /* Cambia el color del borde cuando el input está seleccionado */
+}
+
+
 
 .iconoBuscar {
   position: absolute;
