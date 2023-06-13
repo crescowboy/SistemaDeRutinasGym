@@ -7,7 +7,7 @@
   font-family: "Roboto";
 }
 
-/* HOME ESTILOS */
+/* HOME ESTILOS LOGIN */
 .empezar{
   text-align: center;
 }
@@ -38,6 +38,54 @@
   background-color: antiquewhite;
   transition: 1s;
 }
+
+.login {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.login h3 {
+  text-align: center;
+  color: #333;
+}
+
+.login label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+.login button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: #0056b3;
+}
+
 
 /* ESTILOS REGISTRAR MARCAS */
 
@@ -664,11 +712,10 @@
 }
 
 .buscarRutina input[type="text"]:focus {
-  background-color: #f2f2f2;
-  
-  border-color: blue; /* Cambia el color del borde cuando el input está seleccionado */
+  background-color: #f2f2f2; /* Cambia el color de fondo cuando el input está seleccionado */
+   /* Elimina el estilo predeterminado del outline */
+  outline-color: #007bff; /* Cambia el color del outline cuando el input está seleccionado */
 }
-
 
 
 .iconoBuscar {
