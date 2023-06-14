@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const userInputRef = useRef(null); 
 
   const handleLogin = () => {
     // Comparar usuario y contraseña
     if (user === 'user' && password === 'password') {
       // Redirigir a la otra página
-      navigate('/registrarPr');
+      navigate('/registrarPr'
+      );
     } else {
       // Mostrar mensaje de error o realizar otra acción
-      console.log('Usuario o contraseña incorrectos');
+      Swal.fire({
+        title: 'Usuario o contraseña incorrecta',
+        icon: 'error',
+        showCancelButton: false,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+      })
+
+      setUser('');
+      setPassword('');
+      userInputRef.current.focus();
     }
   };
 
@@ -23,7 +36,7 @@ const Home = () => {
         <div className="empezar">
           <h1>Empieza a conseguir resultados!</h1>
           <div className="login">
-            <h3>Login</h3>
+            <h2>Login</h2>
             <label htmlFor="user">Usuario:</label>
             <input type="text" name="user" value={user} onChange={(e) => setUser(e.target.value)} />
             <label htmlFor="password">Contraseña:</label>
@@ -32,14 +45,15 @@ const Home = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              ref={userInputRef}
             />
             <button type="submit" onClick={handleLogin}>
               Entrar
             </button>
           </div>
-          <button className="boton-empezar" onClick={() => navigate('/registrarPr')}>
+          {/* <button className="boton-empezar" onClick={() => navigate('/registrarPr')}>
             Empezar
-          </button>
+          </button> */}
         </div>
       </div>
     </>

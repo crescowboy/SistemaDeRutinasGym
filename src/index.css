@@ -40,16 +40,17 @@
 }
 
 .login {
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f2f2f2;
   border-radius: 5px;
 }
 
-.login h3 {
+.login h2 {
   text-align: center;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .login label {
@@ -60,8 +61,8 @@
 
 .login input[type="text"],
 .login input[type="password"] {
-  width: 100%;
-  padding: 8px;
+  width: 94%;
+  padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -70,6 +71,7 @@
 .login input[type="text"]:focus,
 .login input[type="password"]:focus {
   border-color: #007bff;
+  outline: none;
 }
 
 .login button {
@@ -85,6 +87,11 @@
 .login button:hover {
   background-color: #0056b3;
 }
+
+
+
+
+
 
 
 /* ESTILOS REGISTRAR MARCAS */
