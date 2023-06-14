@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -6,7 +6,6 @@ const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const userInputRef = useRef(null); 
 
   const handleLogin = () => {
     // Comparar usuario y contraseña
@@ -26,7 +25,6 @@ const Home = () => {
 
       setUser('');
       setPassword('');
-      userInputRef.current.focus();
     }
   };
 
@@ -45,7 +43,6 @@ const Home = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              ref={userInputRef}
             />
             <button type="submit" onClick={handleLogin}>
               Entrar
