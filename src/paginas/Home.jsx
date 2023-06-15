@@ -48,9 +48,6 @@ const Home = () => {
               Entrar
             </button>
           </div>
-          {/* <button className="boton-empezar" onClick={() => navigate('/registrarPr')}>
-            Empezar
-          </button> */}
         </div>
       </div>
     </>
