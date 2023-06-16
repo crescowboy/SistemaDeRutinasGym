@@ -1,5 +1,8 @@
 import React from 'react';
 import Nav from '../Nav';
+import imgEntreno from '../img/entreno.jpg';
+import imgProgreso from '../img/progreso.jpg';
+import imgFood from '../img/food.jpg';
 
 const Principal = () => {
   return (
@@ -25,18 +28,21 @@ const Principal = () => {
             Diseñamos rutinas de entrenamiento específicas para cada usuario, adaptadas a sus objetivos y nivel de
             condición física.
           </p>
+          <img src={imgEntreno} alt="Entreno" />
         </div>
         <div className="feature">
           <h2 className="feature-title">Seguimiento de progreso</h2>
           <p className="feature-description">
             Registra tu progreso en cada sesión de entrenamiento y visualiza tus mejoras a lo largo del tiempo.
           </p>
+          <img src={imgProgreso} alt="Progreso" />
         </div>
         <div className="feature">
           <h2 className="feature-title">Nutrición saludable</h2>
           <p className="feature-description">
             Te ofrecemos planes de alimentación equilibrados y saludables, diseñados por expertos en nutrición.
           </p>
+          <img src={imgFood} alt="food" />
         </div>
       </section>
       {/* <section className="pricing" id="pricing">

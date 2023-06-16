@@ -4,6 +4,7 @@ import Nav from '../Nav';
 import gym1 from '../img/gym1.jpg';
 import gym2 from '../img/gym2.jpg';
 import gym3 from '../img/gym3.jpg';
+import gym4 from '../img/gym4.jpg';
 
 // Configura el elemento raíz para el modal
 Modal.setAppElement('#root');
@@ -91,7 +92,7 @@ const GuiaEjercicios = () => {
         <div className='container-card'>
           <div className="card">
             <h3>Ganar músculo</h3>
-            <img className='img-card' src={gym1} alt="asd" />
+            <img className='img-card' src={gym4} alt="asd" />
             <button className='btn-ver' onClick={infoMusculo}>Ver más</button>
           </div>
           <div className="card">
