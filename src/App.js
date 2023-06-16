@@ -7,6 +7,7 @@ import RegistrarRutina from "./paginas/RegistrarRutina";
 import Provider from "./context/Provider";
 import MisRutinas from "./paginas/MisRutinas";
 import GuiaEjercicios from "./paginas/GuiaEjercicios";
+import Principal from "./paginas/Principal";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/registrarRutinas" element={<RegistrarRutina></RegistrarRutina>}></Route>
         <Route path="/misRutinas" element={<MisRutinas></MisRutinas>}></Route>
         <Route path="/guiaEjercicios" element={<GuiaEjercicios></GuiaEjercicios>}></Route>
+        <Route path="/principal" element={<Principal></Principal>}></Route>
     </Routes>
     <ToastContainer />
     </Provider>

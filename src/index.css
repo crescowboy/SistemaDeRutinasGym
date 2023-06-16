@@ -734,3 +734,212 @@
 }
 
 
+/* FOOTER */
+footer{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+
+
+
+
+
+
+
+/* PRINCIPAL */
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos de la navegación */
+.header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Estilos del hero section */
+.hero {
+  background-image: url('/src/img/gym1.jpg');
+
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Estilos de la sección de características */
+.features {
+  background-color: #f2f2f2;
+  padding: 40px 0;
+}
+
+.feature {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.feature-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 16px;
+}
+
+/* Estilos de la sección de precios */
+.pricing {
+  padding: 40px 0;
+}
+
+.pricing-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.pricing-plans {
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-plan {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.plan-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.plan-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.plan-price {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos de la sección de contacto */
+.contact {
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-description {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.contact-form textarea {
+  height: 100px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos del footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+
+

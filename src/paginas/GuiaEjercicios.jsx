@@ -120,6 +120,8 @@ const GuiaEjercicios = () => {
           {modalContent}
           <button className="btn-ver" onClick={closeModal}>Cerrar</button>
         </Modal>
+
+        <footer>Creada por Wellington Crespo 2023</footer>
       </div>
     </>
   );

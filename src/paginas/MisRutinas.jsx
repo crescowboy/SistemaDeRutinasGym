@@ -63,7 +63,7 @@ const MisRutinas = () => {
             <div className="iconoBuscar">
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </div>
-            <input type="text" value={buscador} onChange={buscarRutina} />
+            <input type="text" value={buscador} placeholder='Buscar' onChange={buscarRutina} />
           </div>
 
           {resultadoEncontrado.length > 0 ? (
@@ -128,6 +128,7 @@ const MisRutinas = () => {
             <p className="msg-rutinas">No hay rutinas disponibles</p>
           )}
         </div>
+        <footer>Creada por Wellington Crespo 2023</footer>
       </div>
     </>
   );
