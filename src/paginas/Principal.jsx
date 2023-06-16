@@ -39,7 +39,7 @@ const Principal = () => {
           </p>
         </div>
       </section>
-      <section className="pricing" id="pricing">
+      {/* <section className="pricing" id="pricing">
         <h2 className="pricing-title">Nuestros planes de suscripción</h2>
         <div className="pricing-plans">
           <div className="pricing-plan">
@@ -59,7 +59,7 @@ const Principal = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="contact" id="contact">
         <h2 className="contact-title">¡Contáctanos!</h2>
         <p className="contact-description">Si tienes alguna pregunta o consulta, no dudes en contactarnos.</p>
@@ -73,7 +73,7 @@ const Principal = () => {
         </form>
       </section>
       <footer className="footer">
-        <p>© 2023 FitnessApp. Todos los derechos reservados.</p>
+        <p>© 2023 Wellington Crespo. Todos los derechos reservados.</p>
       </footer>
     </div>
   );

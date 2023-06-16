@@ -914,6 +914,7 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   width: 300px;
+  border-radius: 5px;
 }
 
 .contact-form textarea {

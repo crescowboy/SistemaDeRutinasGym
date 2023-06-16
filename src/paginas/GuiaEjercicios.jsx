@@ -121,7 +121,9 @@ const GuiaEjercicios = () => {
           <button className="btn-ver" onClick={closeModal}>Cerrar</button>
         </Modal>
 
-        <footer>Creada por Wellington Crespo 2023</footer>
+        <footer>
+          <p>© 2023 Wellington Crespo. Todos los derechos reservados.</p>
+        </footer>
       </div>
     </>
   );

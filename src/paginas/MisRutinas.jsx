@@ -128,7 +128,9 @@ const MisRutinas = () => {
             <p className="msg-rutinas">No hay rutinas disponibles</p>
           )}
         </div>
-        <footer>Creada por Wellington Crespo 2023</footer>
+        <footer className="footer">
+        <p>© 2023 Wellington Crespo. Todos los derechos reservados.</p>
+      </footer>
       </div>
     </>
   );
