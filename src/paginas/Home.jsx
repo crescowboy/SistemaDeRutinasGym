@@ -7,9 +7,13 @@ const Home = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Comparar usuario y contraseña
-    if (user === 'user' && password === 'password') {
+  const Login = () => {
+    // Eliminar los espacios en blanco al principio y al final del usuario y la contraseña
+    const User = user.trim();
+    const Password = password.trim();
+
+    // Comparar usuario y contraseña sin espacios en blanco
+    if (User === 'user' && Password === 'password') {
       // Redirigir a la otra página
       navigate('/Principal');
     } else {
@@ -20,7 +24,7 @@ const Home = () => {
         showCancelButton: false,
         confirmButtonText: 'Aceptar',
         cancelButtonText: 'Cancelar',
-      })
+      });
 
       setUser('');
       setPassword('');
@@ -43,7 +47,7 @@ const Home = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" onClick={handleLogin}>
+            <button type="submit" onClick={Login}>
               Entrar
             </button>
           </div>
