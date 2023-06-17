@@ -1,10 +1,16 @@
 import React from 'react';
 import Nav from '../Nav';
+import { ToastContainer, toast } from 'react-toastify';
 import imgEntreno from '../img/entreno.jpg';
 import imgProgreso from '../img/progreso.jpg';
 import imgFood from '../img/food.jpg';
 
 const Principal = () => {
+
+  const formContacto = () =>{
+    toast.success('Mensaje enviado', { autoClose: 2500 });
+  }
+
   return (
     <div className="landing-page">
       <header >
@@ -45,35 +51,15 @@ const Principal = () => {
           <img src={imgFood} alt="food" />
         </div>
       </section>
-      {/* <section className="pricing" id="pricing">
-        <h2 className="pricing-title">Nuestros planes de suscripción</h2>
-        <div className="pricing-plans">
-          <div className="pricing-plan">
-            <h3 className="plan-title">Básico</h3>
-            <p className="plan-description">Acceso a entrenamientos y seguimiento de progreso</p>
-            <p className="plan-price">$9.99/mes</p>
-            <a href="#contact" className="cta-button">
-              Suscribirse
-            </a>
-          </div>
-          <div className="pricing-plan">
-            <h3 className="plan-title">Avanzado</h3>
-            <p className="plan-description">Acceso a entrenamientos, seguimiento de progreso y planes de nutrición</p>
-            <p className="plan-price">$19.99/mes</p>
-            <a href="#contact" className="cta-button">
-              Suscribirse
-            </a>
-          </div>
-        </div>
-      </section> */}
+      
       <section className="contact" id="contact">
         <h2 className="contact-title">¡Contáctanos!</h2>
         <p className="contact-description">Si tienes alguna pregunta o consulta, no dudes en contactarnos.</p>
         <form className="contact-form">
-          <input type="text" placeholder="Nombre" />
-          <input type="email" placeholder="Correo electrónico" />
-          <textarea placeholder="Mensaje"></textarea>
-          <button type="submit" className="cta-button">
+          <input type="text" required placeholder="Nombre" />
+          <input type="email" required placeholder="Correo electrónico" />
+          <textarea required placeholder="Mensaje"></textarea>
+          <button type="submit" onClick={formContacto} className="cta-button">
             Enviar mensaje
           </button>
         </form>

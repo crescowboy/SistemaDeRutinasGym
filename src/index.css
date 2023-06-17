@@ -795,18 +795,21 @@ body {
 /* Estilos del hero section */
 .hero {
   background-image: url('/src/img/gym1.jpg');
-
   background-size: cover;
   background-position: center;
   height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  
 }
 
 .hero-content {
   text-align: center;
   color: #fff;
+
 }
 
 .hero-title {
