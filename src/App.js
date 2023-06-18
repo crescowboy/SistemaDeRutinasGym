@@ -15,7 +15,7 @@ function App() {
     <>
     <Provider>
     <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<Principal></Principal>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/registrarPr' element={<RegistrarMarcas></RegistrarMarcas>}></Route>
         <Route path="/registrarRutinas" element={<RegistrarRutina></RegistrarRutina>}></Route>

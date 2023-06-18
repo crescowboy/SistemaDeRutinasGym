@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from '../Nav';
 import { ToastContainer, toast } from 'react-toastify';
 import imgEntreno from '../img/entreno.jpg';
 import imgProgreso from '../img/progreso.jpg';
 import imgFood from '../img/food.jpg';
+// import SnatchBot from 'react-snatchbot';
 
 const Principal = () => {
 
-  const formContacto = () =>{
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensaje, setMensaje] = useState('');
+  const formContacto = (e) => {
+    e.preventDefault(); // Evita la recarga de la página al enviar el formulario
     toast.success('Mensaje enviado', { autoClose: 2500 });
+
+    // Restablecer los campos del formulario
+    setNombre('');
+    setEmail('');
+    setMensaje('');
   }
 
   return (
@@ -55,11 +65,11 @@ const Principal = () => {
       <section className="contact" id="contact">
         <h2 className="contact-title">¡Contáctanos!</h2>
         <p className="contact-description">Si tienes alguna pregunta o consulta, no dudes en contactarnos.</p>
-        <form className="contact-form">
-          <input type="text" required placeholder="Nombre" />
-          <input type="email" required placeholder="Correo electrónico" />
-          <textarea required placeholder="Mensaje"></textarea>
-          <button type="submit" onClick={formContacto} className="cta-button">
+        <form onSubmit={formContacto} className="contact-form">
+          <input type="text" required value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Correo electrónico" />
+          <textarea required value={mensaje} onChange={(e) => setMensaje(e.target.value)} placeholder="Mensaje"></textarea>
+          <button type="submit" className="cta-button">
             Enviar mensaje
           </button>
         </form>

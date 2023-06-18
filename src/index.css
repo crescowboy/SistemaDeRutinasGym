@@ -7,6 +7,11 @@
   font-family: "Roboto";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* HOME ESTILOS LOGIN */
 .empezar{
   text-align: center;

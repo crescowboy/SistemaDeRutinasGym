@@ -87,7 +87,7 @@ const GuiaEjercicios = () => {
     <>
       <div className='container-guiaRutina-padre'>
         <Nav></Nav>
-        <h1>Guía</h1>
+        {/* <h1>Guía</h1> */}
 
         <div className='container-card'>
           <div className="card">
