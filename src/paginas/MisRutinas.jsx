@@ -41,6 +41,13 @@ const MisRutinas = () => {
     });
   };
 
+
+  const EditarRutina = (index) =>{
+    console.log("click")
+    const RutinaEditada = [...misRutinas];
+
+  }
+
   const buscarRutina = (e) => {
     const rutinaBuscada = e.target.value;
     setBuscador(e.target.value);
@@ -91,6 +98,9 @@ const MisRutinas = () => {
                   </table>
                   <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
                     Eliminar
+                  </button>
+                  <button className='boton-editar' onClick={()=> EditarRutina(index)}>
+                    Editar
                   </button>
                 </div>
               ))}

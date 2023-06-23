@@ -500,14 +500,7 @@ html {
   background-color: rgb(208, 0, 0);
 }
 
-.boton-editar{
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: white;
-  background-color: blue;
-  border: none;
-  cursor: pointer;
-}
+
 
 .msg-rutinas{
   color: white;
@@ -702,10 +695,26 @@ html {
   margin-top: 3px;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .boton-eliminar:hover {
   background-color: #c82333;
+}
+
+.boton-editar{
+  background-color: blue;
+  width: 80px;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton-editar:hover{
+  background-color: rgb(0, 0, 177);
 }
 
 .buscarRutina{
