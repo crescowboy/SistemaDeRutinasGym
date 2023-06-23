@@ -1,15 +1,20 @@
 import React, { useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Nav from '../Nav';
 import { Contexto } from '../context/Contexto';
 import { useState } from 'react';
 
+
+
 const MisRutinas = () => {
   const { misRutinas, setMisRutinas } = useContext(Contexto);
   const [buscador, setBuscador] = useState('');
   const [resultadoEncontrado, setResultadoEncontrado] = useState([]);
+  const [rutinaIndex, setRutinaIndex] = useState(null);
+
 
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
@@ -43,8 +48,14 @@ const MisRutinas = () => {
 
 
   const EditarRutina = (index) =>{
+
+
     console.log("click")
     const RutinaEditada = [...misRutinas];
+    console.log(RutinaEditada[0].ejercicios[0].ejercicio)
+    RutinaEditada[index].nombre = "editada";
+    RutinaEditada[index].ejercicios[index].ejercicio = "editada"
+    setMisRutinas(RutinaEditada)
 
   }
 
@@ -130,6 +141,9 @@ const MisRutinas = () => {
                   </table>
                   <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
                     Eliminar
+                  </button>
+                  <button className='boton-editar' onClick={()=> EditarRutina(index)}>
+                    Editar
                   </button>
                 </div>
               ))}
