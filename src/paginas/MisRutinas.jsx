@@ -157,7 +157,69 @@ const MisRutinas = () => {
           )}
         </div>
 
-        
+        <Modal
+        is isOpen={rutinaIndex !== null}
+        onRequestClose={()=> setRutinaIndex(null)}
+        contentLabel = "Editar Rutina"
+        >
+          <h2>Editar Rutina</h2>
+          <input
+            type='text'
+            value={rutinaEditada.nombre}
+            onChange={(e) => setRutinaEditada({...rutinaEditada, nombre: e.target.value})}
+          />
+
+          <table>
+            <thead>
+              <tr>
+                <th>Ejercicios</th>
+                <th>Series</th>
+                <th>Repeticiones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rutinaEditada.ejercicios.map((ejercicio, i)=>(
+                <tr key={i}>
+                  <td>
+                  <input
+                    type='text'
+                    value={ejercicio.ejercicio}
+                    onChange={(e) => {
+                      const ejerciciosActualizados = [...rutinaEditada.ejercicios];
+                      ejerciciosActualizados[i].ejercicio = e.target.value;
+                      setRutinaEditada({...rutinaEditada, ejercicios: ejerciciosActualizados})
+                    }}
+                  />
+                  </td>
+                  <td>
+                  <input
+                    type='text'
+                    value={ejercicio.series}
+                    onChange={(e) => {
+                      const ejerciciosActualizados = [...rutinaEditada.ejercicios];
+                      ejerciciosActualizados[i].series = e.target.value;
+                      setRutinaEditada({...rutinaEditada, ejercicios: ejerciciosActualizados})
+                    }}
+                  />
+                  </td>
+                  <td>
+                    <input
+                      type='text'
+                      value={ejercicio.repeticiones}
+                      onChange={(e) => {
+                        const ejerciciosActualizados = [...rutinaEditada.ejercicios];
+                        ejerciciosActualizados[i].repeticiones = e.target.value;
+                        setRutinaEditada({...rutinaEditada, ejercicios: ejerciciosActualizados})
+                      }}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button onClick={guardarEdicionRutina}>Guardar</button>
+          <button onClick={() => setRutinaIndex(null)}>Cancelar</button>
+        </Modal>
 
 
         <footer className="footer">
