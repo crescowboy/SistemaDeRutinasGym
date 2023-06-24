@@ -14,6 +14,7 @@ const MisRutinas = () => {
   const [buscador, setBuscador] = useState('');
   const [resultadoEncontrado, setResultadoEncontrado] = useState([]);
   const [rutinaIndex, setRutinaIndex] = useState(null);
+  const [rutinaEditada, setRutinaEditada] = useState({nombre: '', ejercicios: []});
 
 
   useEffect(() => {
@@ -47,17 +48,20 @@ const MisRutinas = () => {
   };
 
 
-  const EditarRutina = (index) =>{
+  const EditarRutina = (index) => {
+    setRutinaIndex(index);
+    setRutinaEditada(misRutinas[index]);
+  };
 
-
-    console.log("click")
-    const RutinaEditada = [...misRutinas];
-    console.log(RutinaEditada[0].ejercicios[0].ejercicio)
-    RutinaEditada[index].nombre = "editada";
-    RutinaEditada[index].ejercicios[index].ejercicio = "editada"
-    setMisRutinas(RutinaEditada)
-
+  const guardarEdicionRutina = () =>{
+    const rutinasActualizadas = [...misRutinas];
+    rutinasActualizadas[rutinaIndex] = rutinaEditada;
+    setMisRutinas(rutinasActualizadas);
+    setRutinaEditada({nombre: '', ejercicios: []});
+    setRutinaIndex(null);
   }
+
+  //Buscar rutina
 
   const buscarRutina = (e) => {
     const rutinaBuscada = e.target.value;
@@ -98,13 +102,13 @@ const MisRutinas = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {rutina.ejercicios.map((ejercicio, i) => (
-                        <tr key={i}>
-                          <td>{ejercicio.ejercicio}</td>
-                          <td>{ejercicio.series}</td>
-                          <td>{ejercicio.repeticiones}</td>
-                        </tr>
-                      ))}
+                    {rutinaEditada.ejercicios.map((ejercicio, i) => (
+                      <tr key={i}>
+                        <td>{ejercicio.ejercicio}</td>
+                        <td>{ejercicio.series}</td>
+                        <td>{ejercicio.repeticiones}</td>
+                      </tr>
+                    ))}
                     </tbody>
                   </table>
                   <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
@@ -152,6 +156,10 @@ const MisRutinas = () => {
             <p className="msg-rutinas">No hay rutinas disponibles</p>
           )}
         </div>
+
+        
+
+
         <footer className="footer">
         <p>© 2023 Wellington Crespo. Todos los derechos reservados.</p>
       </footer>
