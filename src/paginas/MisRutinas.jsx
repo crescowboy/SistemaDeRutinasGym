@@ -20,9 +20,13 @@ const MisRutinas = () => {
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
     const storedRutinas = localStorage.getItem('misRutinas');
+    // const storeRutinaEditada = localStorage.getItem('rutinaEditada');
     if (storedRutinas) {
       setMisRutinas(JSON.parse(storedRutinas));
     }
+    // if (storeRutinaEditada) {
+    //   setMisRutinas(JSON.parse(storeRutinaEditada));
+    // }
   }, []);
 
   const handleEliminarRutina = (index) => {
@@ -161,15 +165,18 @@ const MisRutinas = () => {
         is isOpen={rutinaIndex !== null}
         onRequestClose={()=> setRutinaIndex(null)}
         contentLabel = "Editar Rutina"
+        className="modal-editar-rutina"
+        overlayClassName="modal-overlay"
         >
+          <div className='padre-ModalMisRutinas'>
           <h2>Editar Rutina</h2>
-          <input
+          <input className='input-editar-rutina'
             type='text'
             value={rutinaEditada.nombre}
             onChange={(e) => setRutinaEditada({...rutinaEditada, nombre: e.target.value})}
           />
-
-          <table>
+          
+          <table className='tabla-ModalMisRutinas'>
             <thead>
               <tr>
                 <th>Ejercicios</th>
@@ -217,8 +224,12 @@ const MisRutinas = () => {
               ))}
             </tbody>
           </table>
-          <button onClick={guardarEdicionRutina}>Guardar</button>
-          <button onClick={() => setRutinaIndex(null)}>Cancelar</button>
+          
+          {/* <div className='buttons-ModalMisRutinas'> */}
+          <button className='boton-guardar' onClick={guardarEdicionRutina}>Guardar</button>
+          <button className='boton-eliminar' onClick={() => setRutinaIndex(null)}>Cancelar</button>
+          {/* </div> */}
+          </div>
         </Modal>
 
 

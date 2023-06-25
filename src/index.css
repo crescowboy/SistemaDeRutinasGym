@@ -973,4 +973,102 @@ body {
 }
 
 
+/* MIS RUTINAS MODAL */
+
+.boton-guardar {
+  background-color: #ff0;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.boton-guardar:hover {
+  background-color: rgb(202, 202, 0);
+}
+
+.padre-ModalMisRutinas{
+  padding: 50px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1px); /* Aplica el desenfoque al fondo del modal */
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta el color y la opacidad del fondo del modal */
+}
+
+.modal-editar-rutina {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-editar-rutina h2,
+.modal-editar-rutina .padre-ModalMisRutinas {
+  margin-bottom: 20px;
+}
+
+.modal-editar-rutina .buttons-ModalMisRutinas {
+  margin-top: 20px;
+}
+
+
+.tabla-ModalMisRutinas {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.tabla-ModalMisRutinas th,
+.tabla-ModalMisRutinas td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tabla-ModalMisRutinas th {
+  background-color: #c7c7c7;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tabla-ModalMisRutinas input{
+  padding: 7px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.input-editar-rutina{
+  padding: 7px;
+  border: 1px solid #ddd;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+
+.buttons-ModalMisRutinas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0056b3;
+}
+
+
 
