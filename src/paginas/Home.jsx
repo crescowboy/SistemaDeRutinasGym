@@ -31,6 +31,13 @@ const Home = () => {
     }
   };
 
+  const KeyDown = (e) =>{
+    if(e.keyCode === 13){
+      Login();
+    }
+    
+  }
+
   return (
     <>
       <div className="container-empezar">
@@ -46,6 +53,7 @@ const Home = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={KeyDown}
             />
             <button type="submit" onClick={Login}>
               Entrar
