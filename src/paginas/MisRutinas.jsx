@@ -28,6 +28,7 @@ const MisRutinas = () => {
     //   setMisRutinas(JSON.parse(storeRutinaEditada));
     // }
   }, []);
+  
 
   const handleEliminarRutina = (index) => {
     Swal.fire({
