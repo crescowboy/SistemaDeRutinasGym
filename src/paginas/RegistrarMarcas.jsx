@@ -1,6 +1,7 @@
 import React, { useContext, useState,useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { pr } from '../data/datos';
+import Swal from 'sweetalert2';
 import Nav from '../Nav';
 import { Contexto } from '../context/Contexto';
 
@@ -73,11 +74,31 @@ const RegistrarMarcas = () => {
   }
 
   const eliminarMarcas = (index) =>{
-    const updatedValores = [...valores];
-    updatedValores.splice(index, 1);
-    setValores(updatedValores);
-    localStorage.setItem('valores', JSON.stringify(updatedValores));
-    reset();
+    Swal.fire({
+      title: 'Confirmacion',
+      text: 'Estas seguro de eliminar los Prs?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result)=>{
+      if (result.isConfirmed) {
+        const updatedValores = [...valores];
+        updatedValores.splice(index, 1);
+        setValores(updatedValores);
+        localStorage.setItem('valores', JSON.stringify(updatedValores));
+        reset();
+
+        Swal.fire({
+          text: 'Eliminacion realizada con exito',
+          icon: 'success',
+          timer: 1500,
+        });
+
+      }
+      
+    })
+    
   }
 
   
@@ -96,25 +117,25 @@ const RegistrarMarcas = () => {
         <div className='content-marcas'>
           <h1>Marcas registradas:</h1>
           <div className='input-marcas'>
-  <label htmlFor="banca">Press Banca:</label>
-  <input 
-    type="number" 
-    id="banca"
-    {...register("banca",
-    {
-      min:1
-    }
-    )}
-    onInput={(e) => {
-      let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
-            if (newValue === "0") {
-              newValue = "";
+          <label htmlFor="banca">Press Banca:</label>
+          <input 
+            type="number" 
+            id="banca"
+            {...register("banca",
+            {
+              min:1
             }
-            e.target.value = newValue;
-    }}
-  />
-  <span className='kg'>kg</span> 
-</div>
+            )}
+            onInput={(e) => {
+              let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
+                    if (newValue === "0") {
+                      newValue = "";
+                    }
+                    e.target.value = newValue;
+            }}
+          />
+          <span className='kg'>kg</span> 
+      </div>
 
 
 
