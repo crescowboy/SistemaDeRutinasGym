@@ -9,6 +9,9 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -478,6 +481,9 @@ html {
 /* Mis Rutinas */
 
 .container-misRutinas-padre{
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
   background-color: #1C2128;
   height: 100vh;
   overflow: auto;
@@ -622,6 +628,9 @@ html {
 .container-guiaRutina-padre{
   background-color: #1C2128;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
 }
 
 .container-guiaRutina-padre h1{
@@ -784,6 +793,7 @@ footer{
   justify-content: center;
   align-items: center;
   padding: 50px;
+  margin-top: auto;
 }
 
 
