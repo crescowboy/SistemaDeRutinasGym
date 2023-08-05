@@ -161,9 +161,9 @@ html {
   align-items: center;
 }
 .boton-marcas input[type="submit"] {
-  background-color: #007bff;
+  background-color: #ff0;
   width: 200px;
-  color: #fff;
+  color: black;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -190,7 +190,7 @@ html {
 }
 
 .boton-marcas input[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: rgb(216, 216, 0);
 }
 
 .boton-marcas button:hover {
