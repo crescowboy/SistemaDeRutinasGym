@@ -101,6 +101,12 @@ const RegistrarMarcas = () => {
     
   }
 
+  const selectMarca = (e) =>{
+    // console.log("click")
+    const prseleccionado = e.target.value;
+    console.log(prseleccionado)
+  }
+
   
   return (
     <>
@@ -204,7 +210,7 @@ const RegistrarMarcas = () => {
       valores.map((valor,index)=>(
         <div className='mostrarPr' key={index}>
           
-          <div className='ejercicioPr1'>
+          <div className='ejercicioPr1' onClick={selectMarca}>
             <div className='ejercicioPr'>
               <div className=''>{valor.banca
                 ? valor.banca
@@ -216,7 +222,7 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1'>
+          <div className='ejercicioPr1' onClick={selectMarca}>
             <div className='ejercicioPr'>
                 <div className=''>{valor.sentadilla
                 ? valor.sentadilla
@@ -228,7 +234,7 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1'>
+          <div className='ejercicioPr1' onClick={selectMarca}>
             <div className='ejercicioPr'>
                 <div className=''>{valor.pesoMuerto 
                 ? valor.pesoMuerto
