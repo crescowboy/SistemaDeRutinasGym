@@ -368,9 +368,9 @@ html {
 /* ESTILOS REGISTRAR RUTINAS */
 
 .btn-guardar{
-  background-color: #007bff;
+  background-color: #ff0;
   width: 200px;
-  color: #fff;
+  color: black;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -380,7 +380,7 @@ html {
 }
 
 .btn-guardar:hover{
-  background-color: #0056b3;
+  background-color: rgb(220, 220, 0);
 }
 
 .Pr-padre{
@@ -542,9 +542,9 @@ html {
 }
 
 .btn-agregar{
-  background-color: #007bff;
+  background-color: #ff0;
   width: 200px;
-  color: #fff;
+  color: black;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -554,7 +554,7 @@ html {
 }
 
 .btn-agregar:hover{
-  background-color: #0056b3;
+  background-color: rgb(220, 220, 0);
 }
 
 .btn-eliminar{
