@@ -102,9 +102,9 @@ const RegistrarMarcas = () => {
   }
 
   const selectMarca = (e) =>{
-    // console.log("click")
-    const prseleccionado = e.target.value;
-    console.log(prseleccionado)
+    console.log("click")
+    // const prseleccionado = e.target.value;
+    // console.log(prseleccionado)
   }
 
   
