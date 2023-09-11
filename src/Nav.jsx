@@ -8,7 +8,7 @@ const Nav = () => {
         <ul>
           
         <li><NavLink to="/">Inicio</NavLink></li>
-        <li><NavLink to="/registrarPr" activeClassName="active" >Registrar Pr</NavLink></li>
+        <li><NavLink to="/registrarPr">Registrar Pr</NavLink></li>
         <li><NavLink to="/registrarRutinas">Registrar runinas</NavLink></li>   
         <li><NavLink to="/misRutinas">Mis Rutinas</NavLink></li>
         <li><NavLink to="/guiaEjercicios">Guia</NavLink></li>

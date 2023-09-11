@@ -107,7 +107,7 @@ const MisRutinas = () => {
                       </tr>
                     </thead>
                     <tbody>
-                    {rutinaEditada.ejercicios.map((ejercicio, i) => (
+                    {rutina.ejercicios.map((ejercicio, i) => (
                       <tr key={i}>
                         <td>{ejercicio.ejercicio}</td>
                         <td>{ejercicio.series}</td>

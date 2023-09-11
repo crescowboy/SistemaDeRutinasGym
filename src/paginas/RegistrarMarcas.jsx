@@ -31,7 +31,7 @@ const RegistrarMarcas = () => {
 
 
   const obtenerValores =(data)=>{
-    console.table(data);
+    // console.table(data);
 
   const campo = Object.keys(data)[0];
   const campo2 = Object.keys(data)[1];
