@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react'
+import React, { useContext, useState,useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { pr } from '../data/datos';
 import Swal from 'sweetalert2';
@@ -13,8 +13,12 @@ import { Contexto } from '../context/Contexto';
 const RegistrarMarcas = () => {
   const {register,handleSubmit,formState:{errors}, reset} = useForm();
   const {valores,setValores,estado,setEstado} = useContext(Contexto);
+  // const miInputRef = useRef();
+  const miInputRefBanca = useRef(); // Referencia para el input de "Press Banca"
+  const miInputRefSentadilla = useRef();
   
-
+  
+  
 
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
@@ -101,11 +105,13 @@ const RegistrarMarcas = () => {
     
   }
 
-  const selectMarca = (e) =>{
-    console.log("click")
-    // const prseleccionado = e.target.value;
-    // console.log(prseleccionado)
-  }
+  const selectMarca = (ref) => {
+    // Enfoca el input cuando se hace clic en el div
+    console.log("Div clickeado");
+    if (ref.current) {
+      ref.current.focus();
+    }
+  };
 
   
   return (
@@ -124,7 +130,7 @@ const RegistrarMarcas = () => {
           <h1>Marcas registradas:</h1>
           <div className='input-marcas'>
           <label htmlFor="banca">Press Banca:</label>
-          <input 
+          <input ref={miInputRefBanca}  
             type="number" 
             id="banca"
             {...register("banca",
@@ -151,7 +157,7 @@ const RegistrarMarcas = () => {
 
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
-          <input type="number" id='sentadilla' 
+          <input ref={miInputRefSentadilla} type="number" id='sentadilla' 
           {...register("sentadilla",
           {
             min: 1
@@ -210,7 +216,7 @@ const RegistrarMarcas = () => {
       valores.map((valor,index)=>(
         <div className='mostrarPr' key={index}>
           
-          <div className='ejercicioPr1' onClick={selectMarca}>
+          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefBanca)}>
             <div className='ejercicioPr'>
               <div className=''>{valor.banca
                 ? valor.banca
@@ -222,7 +228,7 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1' onClick={selectMarca}>
+          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefSentadilla)}>
             <div className='ejercicioPr'>
                 <div className=''>{valor.sentadilla
                 ? valor.sentadilla
