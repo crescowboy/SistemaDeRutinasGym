@@ -8,6 +8,7 @@ import Provider from "./context/Provider";
 import MisRutinas from "./paginas/MisRutinas";
 import GuiaEjercicios from "./paginas/GuiaEjercicios";
 import Principal from "./paginas/Principal";
+import Prueba_rf from "./paginas/Prueba_rf";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/misRutinas" element={<MisRutinas></MisRutinas>}></Route>
         <Route path="/guiaEjercicios" element={<GuiaEjercicios></GuiaEjercicios>}></Route>
         <Route path="/principal" element={<Principal></Principal>}></Route>
+        <Route path="/prueba" element={<Prueba_rf></Prueba_rf>}></Route>
     </Routes>
     <ToastContainer />
     </Provider>

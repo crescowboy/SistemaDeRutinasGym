@@ -184,7 +184,7 @@ const RegistrarMarcas = () => {
 
         <div className='input-marcas'>
           <label htmlFor="pesoMuerto">Peso muerto:</label>
-          <input type="number" id='pesoMuerto' 
+          <input ref={miInputRefPeso} type="number" id='pesoMuerto' 
           {...register("pesoMuerto",
           {
             min: 1
