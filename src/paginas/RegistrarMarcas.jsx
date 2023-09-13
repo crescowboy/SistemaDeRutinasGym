@@ -14,8 +14,9 @@ const RegistrarMarcas = () => {
   const {register,handleSubmit,formState:{errors}, reset} = useForm();
   const {valores,setValores,estado,setEstado} = useContext(Contexto);
   // const miInputRef = useRef();
-  const miInputRefBanca = useRef(); // Referencia para el input de "Press Banca"
-  const miInputRefSentadilla = useRef();
+  const miInputRefBanca = useRef(null); // Referencia para el input de "Press Banca"
+  const miInputRefSentadilla = useRef(null);
+  const miInputRefPeso = useRef(null);
   
   
   
@@ -33,6 +34,7 @@ const RegistrarMarcas = () => {
     localStorage.setItem('valores', JSON.stringify(valores));
   }, [valores]);
 
+  
 
   const obtenerValores =(data)=>{
     // console.table(data);
@@ -107,10 +109,14 @@ const RegistrarMarcas = () => {
 
   const selectMarca = (ref) => {
     // Enfoca el input cuando se hace clic en el div
-    console.log("Div clickeado");
-    if (ref.current) {
+    // console.log("Div clickeado");
+    
+    if(ref.current){
       ref.current.focus();
-    }
+     } 
+      
+    
+    
   };
 
   
@@ -217,8 +223,8 @@ const RegistrarMarcas = () => {
         <div className='mostrarPr' key={index}>
           
           <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefBanca)}>
-            <div className='ejercicioPr'>
-              <div className=''>{valor.banca
+            <div className='ejercicioPr' >
+              <div className='' >{valor.banca
                 ? valor.banca
                 : <span>---</span>
                 }
@@ -229,8 +235,8 @@ const RegistrarMarcas = () => {
           </div>
 
           <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefSentadilla)}>
-            <div className='ejercicioPr'>
-                <div className=''>{valor.sentadilla
+            <div className='ejercicioPr' onClick={() => selectMarca(miInputRefSentadilla)}>
+                <div className='' onClick={() => selectMarca(miInputRefSentadilla)}>{valor.sentadilla
                 ? valor.sentadilla
                 :<span>---</span>
                 }
@@ -240,9 +246,9 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1' onClick={selectMarca}>
-            <div className='ejercicioPr'>
-                <div className=''>{valor.pesoMuerto 
+          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefPeso)}>
+            <div className='ejercicioPr' onClick={() => selectMarca(miInputRefPeso)}>
+                <div className='' onClick={() => selectMarca(miInputRefPeso)}>{valor.pesoMuerto 
                 ? valor.pesoMuerto
                 :
                 <span>---</span>}
@@ -251,6 +257,8 @@ const RegistrarMarcas = () => {
                 <div>Peso muerto</div>
             </div>
           </div>
+
+          
           
           
         </div>
