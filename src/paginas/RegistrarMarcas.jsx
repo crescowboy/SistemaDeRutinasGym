@@ -108,15 +108,11 @@ const RegistrarMarcas = () => {
   }
 
   const selectMarca = (ref) => {
-    // Enfoca el input cuando se hace clic en el div
-    // console.log("Div clickeado");
-    
-    if(ref.current){
+    console.log('Función selectMarca ejecutada');
+    if (ref && ref.current) {
       ref.current.focus();
-     } 
-      
-    
-    
+      // register("banca", { min: 1 });
+    }
   };
 
   
@@ -184,12 +180,13 @@ const RegistrarMarcas = () => {
 
         <div className='input-marcas'>
           <label htmlFor="pesoMuerto">Peso muerto:</label>
-          <input ref={miInputRefPeso} type="number" id='pesoMuerto' 
+          <input ref={miInputRefPeso}  type="number" id='pesoMuerto' 
           {...register("pesoMuerto",
           {
             min: 1
           }
           )}
+          
           onInput={(e) => {
             let newValue = Math.max(0, parseInt(e.target.value || 0)).toString().slice(0, 3);
             if (newValue === "0") {
@@ -197,6 +194,7 @@ const RegistrarMarcas = () => {
             }
             e.target.value = newValue;
           }}
+          
           />
           <span className='kg'>kg</span> 
         </div>
@@ -290,6 +288,7 @@ const RegistrarMarcas = () => {
                       <div>Sentadilla</div>
                   </div>
                 </div>
+                
 
                 <div className='ejercicioPr1'>
                   <div className='ejercicioPr'>
