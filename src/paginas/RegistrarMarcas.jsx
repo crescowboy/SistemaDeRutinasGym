@@ -14,9 +14,9 @@ const RegistrarMarcas = () => {
   const {register,handleSubmit,formState:{errors}, reset} = useForm();
   const {valores,setValores,estado,setEstado} = useContext(Contexto);
   // const miInputRef = useRef();
-  const miInputRefBanca = useRef(null); // Referencia para el input de "Press Banca"
-  const miInputRefSentadilla = useRef(null);
-  const miInputRefPeso = useRef(null);
+  // const miInputRefBanca = useRef(null); // Referencia para el input de "Press Banca"
+  // const miInputRefSentadilla = useRef(null);
+  // const miInputRefPeso = useRef(null);
   
   
   
@@ -107,13 +107,13 @@ const RegistrarMarcas = () => {
     
   }
 
-  const selectMarca = (ref) => {
-    console.log('Función selectMarca ejecutada');
-    if (ref && ref.current) {
-      ref.current.focus();
-      // register("banca", { min: 1 });
-    }
-  };
+  // const selectMarca = (ref) => {
+  // //   console.log('Función selectMarca ejecutada');
+  // //   if (ref && ref.current) {
+  // //     ref.current.focus();
+  // //     // register("banca", { min: 1 });
+  // //   }
+  // // };
 
   
   return (
@@ -132,7 +132,7 @@ const RegistrarMarcas = () => {
           <h1>Marcas registradas:</h1>
           <div className='input-marcas'>
           <label htmlFor="banca">Press Banca:</label>
-          <input ref={miInputRefBanca}  
+          <input   
             type="number" 
             id="banca"
             {...register("banca",
@@ -159,7 +159,7 @@ const RegistrarMarcas = () => {
 
         <div className='input-marcas'>
           <label htmlFor="sentadilla">Sentadilla:</label>
-          <input ref={miInputRefSentadilla} type="number" id='sentadilla' 
+          <input  type="number" id='sentadilla' 
           {...register("sentadilla",
           {
             min: 1
@@ -180,7 +180,7 @@ const RegistrarMarcas = () => {
 
         <div className='input-marcas'>
           <label htmlFor="pesoMuerto">Peso muerto:</label>
-          <input ref={miInputRefPeso}  type="number" id='pesoMuerto' 
+          <input  type="number" id='pesoMuerto' 
           {...register("pesoMuerto",
           {
             min: 1
@@ -220,7 +220,7 @@ const RegistrarMarcas = () => {
       valores.map((valor,index)=>(
         <div className='mostrarPr' key={index}>
           
-          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefBanca)}>
+          <div className='ejercicioPr1'>
             <div className='ejercicioPr' >
               <div className='' >{valor.banca
                 ? valor.banca
@@ -232,9 +232,9 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefSentadilla)}>
-            <div className='ejercicioPr' onClick={() => selectMarca(miInputRefSentadilla)}>
-                <div className='' onClick={() => selectMarca(miInputRefSentadilla)}>{valor.sentadilla
+          <div className='ejercicioPr1'>
+            <div className='ejercicioPr' >
+                <div className='' >{valor.sentadilla
                 ? valor.sentadilla
                 :<span>---</span>
                 }
@@ -244,9 +244,9 @@ const RegistrarMarcas = () => {
             </div>
           </div>
 
-          <div className='ejercicioPr1' onClick={() => selectMarca(miInputRefPeso)}>
-            <div className='ejercicioPr' onClick={() => selectMarca(miInputRefPeso)}>
-                <div className='' onClick={() => selectMarca(miInputRefPeso)}>{valor.pesoMuerto 
+          <div className='ejercicioPr1' >
+            <div className='ejercicioPr' >
+                <div className='' >{valor.pesoMuerto 
                 ? valor.pesoMuerto
                 :
                 <span>---</span>}

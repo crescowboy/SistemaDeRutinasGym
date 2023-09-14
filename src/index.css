@@ -1032,7 +1032,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 800px;
-  height: 450px;
+  height: auto;
   background-color: white;
   border-radius: 5px;
   display: flex;

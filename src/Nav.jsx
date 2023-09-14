@@ -12,7 +12,7 @@ const Nav = () => {
         <li><NavLink to="/registrarRutinas">Registrar runinas</NavLink></li>   
         <li><NavLink to="/misRutinas">Mis Rutinas</NavLink></li>
         <li><NavLink to="/guiaEjercicios">Guia</NavLink></li>
-        <li><NavLink to="/prueba">prueba</NavLink></li>
+        {/* <li><NavLink to="/prueba">prueba</NavLink></li> */}
         {/* <li><NavLink to="/principal">Inicio</NavLink></li> */}
           
         </ul>
