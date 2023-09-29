@@ -57,14 +57,30 @@ const MisRutinas = () => {
 
 
   const EditarRutina = (index) => {
-    const rutinaSeleccionada = resultadoEncontrado.length > 0 ? resultadoEncontrado[index] : misRutinas[index];
-  
-    if (rutinaSeleccionada) {
+
+    console.log('Índice recibido:', index);
+  console.log('Resultado Encontrado:', resultadoEncontrado);
+  console.log('Mis Rutinas:', misRutinas);
+
+  if (resultadoEncontrado.length > 0) {
+    // Si estamos en el resultado de búsqueda, edita la rutina en resultadoEncontrado
+    if (resultadoEncontrado[index]) {
+      const rutinaSeleccionada = JSON.parse(JSON.stringify(resultadoEncontrado[index]));
       setRutinaIndex(index);
       setRutinaEditada(rutinaSeleccionada);
     } else {
-      console.error("Rutina no encontrada en resultadoEncontrado o misRutinas");
+      console.error("Rutina no encontrada en resultadoEncontrado");
     }
+  } else {
+    // Si no estamos en el resultado de búsqueda, edita la rutina en misRutinas
+    if (misRutinas[index]) {
+      const rutinaSeleccionada = JSON.parse(JSON.stringify(misRutinas[index]));
+      setRutinaIndex(index);
+      setRutinaEditada(rutinaSeleccionada);
+    } else {
+      console.error("Rutina no encontrada en misRutinas");
+    }
+  }
   };
 
   const guardarEdicionRutina = () =>{
