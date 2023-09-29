@@ -57,16 +57,29 @@ const MisRutinas = () => {
 
 
   const EditarRutina = (index) => {
-    setRutinaIndex(index);
-    setRutinaEditada(misRutinas[index]);
+    const rutinaSeleccionada = resultadoEncontrado.length > 0 ? resultadoEncontrado[index] : misRutinas[index];
+  
+    if (rutinaSeleccionada) {
+      setRutinaIndex(index);
+      setRutinaEditada(rutinaSeleccionada);
+    } else {
+      console.error("Rutina no encontrada en resultadoEncontrado o misRutinas");
+    }
   };
 
   const guardarEdicionRutina = () =>{
     const rutinasActualizadas = [...misRutinas];
-    rutinasActualizadas[rutinaIndex] = rutinaEditada;
-    setMisRutinas(rutinasActualizadas);
-    setRutinaEditada({nombre: '', ejercicios: []});
-    setRutinaIndex(null);
+  rutinasActualizadas[rutinaIndex] = rutinaEditada;
+  
+  // Actualizar el estado global
+  setMisRutinas(rutinasActualizadas);
+
+  // Actualizar el almacenamiento local
+  localStorage.setItem('misRutinas', JSON.stringify(rutinasActualizadas));
+
+  // Limpiar los valores de edición
+  setRutinaEditada({ nombre: '', ejercicios: [] });
+  setRutinaIndex(null);
   }
 
   //Buscar rutina
