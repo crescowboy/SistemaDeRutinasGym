@@ -15,7 +15,7 @@ const MisRutinas = () => {
   const [resultadoEncontrado, setResultadoEncontrado] = useState([]);
   const [rutinaIndex, setRutinaIndex] = useState(null);
   const [rutinaEditada, setRutinaEditada] = useState({nombre: '', ejercicios: []});
-
+  const [fuenteDeDatos, setFuenteDeDatos] = useState('misRutinas'); // Usamos esto para rastrear de dónde proviene la rutina editada
 
   useEffect(() => {
     // Recuperar las rutinas almacenadas en localStorage al cargar la aplicación
@@ -57,46 +57,56 @@ const MisRutinas = () => {
 
 
   const EditarRutina = (index) => {
-
     console.log('Índice recibido:', index);
-  console.log('Resultado Encontrado:', resultadoEncontrado);
-  console.log('Mis Rutinas:', misRutinas);
+    console.log('Resultado Encontrado:', resultadoEncontrado);
+    console.log('Mis Rutinas:', misRutinas);
 
-  if (resultadoEncontrado.length > 0) {
-    // Si estamos en el resultado de búsqueda, edita la rutina en resultadoEncontrado
-    if (resultadoEncontrado[index]) {
-      const rutinaSeleccionada = JSON.parse(JSON.stringify(resultadoEncontrado[index]));
-      setRutinaIndex(index);
-      setRutinaEditada(rutinaSeleccionada);
+    if (resultadoEncontrado.length > 0) {
+      const rutinaSeleccionada = resultadoEncontrado[index];
+      if (rutinaSeleccionada) {
+        // Clonar la rutina seleccionada para evitar referencias directas
+        const rutinaEditadaClone = JSON.parse(JSON.stringify(rutinaSeleccionada));
+        setRutinaIndex(index);
+        setRutinaEditada(rutinaEditadaClone);
+        setFuenteDeDatos('resultadoEncontrado'); // Marcar la fuente de datos como resultadoEncontrado
+      } else {
+        console.error("Rutina no encontrada en resultadoEncontrado");
+      }
     } else {
-      console.error("Rutina no encontrada en resultadoEncontrado");
+      const rutinaSeleccionada = misRutinas[index];
+      if (rutinaSeleccionada) {
+        // Clonar la rutina seleccionada para evitar referencias directas
+        const rutinaEditadaClone = JSON.parse(JSON.stringify(rutinaSeleccionada));
+        setRutinaIndex(index);
+        setRutinaEditada(rutinaEditadaClone);
+        setFuenteDeDatos('misRutinas'); // Marcar la fuente de datos como misRutinas
+      } else {
+        console.error("Rutina no encontrada en misRutinas");
+      }
     }
-  } else {
-    // Si no estamos en el resultado de búsqueda, edita la rutina en misRutinas
-    if (misRutinas[index]) {
-      const rutinaSeleccionada = JSON.parse(JSON.stringify(misRutinas[index]));
-      setRutinaIndex(index);
-      setRutinaEditada(rutinaSeleccionada);
-    } else {
-      console.error("Rutina no encontrada en misRutinas");
-    }
-  }
   };
 
-  const guardarEdicionRutina = () =>{
+  const guardarEdicionRutina = () => {
     const rutinasActualizadas = [...misRutinas];
-  rutinasActualizadas[rutinaIndex] = rutinaEditada;
-  
-  // Actualizar el estado global
-  setMisRutinas(rutinasActualizadas);
 
-  // Actualizar el almacenamiento local
-  localStorage.setItem('misRutinas', JSON.stringify(rutinasActualizadas));
+    if (fuenteDeDatos === 'misRutinas') {
+      rutinasActualizadas[rutinaIndex] = rutinaEditada;
+    } else if (fuenteDeDatos === 'resultadoEncontrado') {
+      // Si la fuente de datos es resultadoEncontrado, actualiza la rutina en resultadoEncontrado
+      resultadoEncontrado[rutinaIndex] = rutinaEditada;
+    }
 
-  // Limpiar los valores de edición
-  setRutinaEditada({ nombre: '', ejercicios: [] });
-  setRutinaIndex(null);
-  }
+    // Actualizar el estado global
+    setMisRutinas(rutinasActualizadas);
+
+    // Actualizar el almacenamiento local
+    localStorage.setItem('misRutinas', JSON.stringify(rutinasActualizadas));
+
+    // Limpiar los valores de edición
+    setRutinaEditada({ nombre: '', ejercicios: [] });
+    setRutinaIndex(null);
+    setFuenteDeDatos(null); // Reinicia la fuente de datos
+  };
 
   //Buscar rutina
 
