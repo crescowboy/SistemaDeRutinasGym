@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../Nav';
-// import { useForm } from 'react-hook-form';
-// import GuardarRutina from './GuardarRutina';
 import { Contexto } from '../context/Contexto';
 
 const RegistrarRutina = () => {
   const { misRutinas, setMisRutinas } = useContext(Contexto);
   const [nombreRutina, setNombreRutina] = useState('');
-  const [ejercicios, setEjercicios] = useState([{ ejercicio: '', series: '', repeticiones: '' }]);
+  const [ejercicios, setEjercicios] = useState([{ id: 1, ejercicio: '', series: '', repeticiones: '' }]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -25,7 +23,12 @@ const RegistrarRutina = () => {
     localStorage.setItem('misRutinas', JSON.stringify(misRutinas));
   }, [misRutinas]);
 
- 
+  // Función para generar un ID único para los ejercicios
+  const generarIdUnico = () => {
+    // Encuentra el máximo ID existente y agrega 1 para obtener un nuevo ID
+    const maxId = Math.max(...ejercicios.map(ejercicio => ejercicio.id), 0);
+    return maxId + 1;
+  };
 
   const handleChangeNombreRutina = (e) => {
     setNombreRutina(e.target.value);
@@ -39,7 +42,8 @@ const RegistrarRutina = () => {
   };
 
   const handleAddEjercicio = () => {
-    setEjercicios([...ejercicios, { ejercicio: '', series: '', repeticiones: '' }]);
+    const newId = generarIdUnico();
+    setEjercicios([...ejercicios, { id: newId, ejercicio: '', series: '', repeticiones: '' }]);
   };
 
   const handleRemoveEjercicio = (index) => {
@@ -56,10 +60,11 @@ const RegistrarRutina = () => {
     }
     setMisRutinas([...misRutinas, { nombre: nombreRutina, ejercicios: ejercicios }]);
     setNombreRutina('');
-    setEjercicios([{ ejercicio: '', series: '', repeticiones: '' }]);
+    setEjercicios([{ id: generarIdUnico(), ejercicio: '', series: '', repeticiones: '' }]);
     setError(false);
-    
+
     toast.success('Rutina guardada', { autoClose: 2500 });
+    console.log(ejercicios)
   };
 
   return (
@@ -85,7 +90,7 @@ const RegistrarRutina = () => {
               <div className=".tabla-misRutinas">
                 <label htmlFor="ejercicios">Ejercicios</label>
                 {ejercicios.map((ejercicio, index) => (
-                  <div key={index} className="ejercicio">
+                  <div key={ejercicio.id} className="ejercicio">
                     <input
                       type="text"
                       name="ejercicio"

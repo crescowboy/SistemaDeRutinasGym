@@ -30,7 +30,7 @@ const MisRutinas = () => {
   }, []);
   
 
-  const handleEliminarRutina = (index) => {
+  const handleEliminarRutina = (id) => {
     Swal.fire({
       title: '¿Estás seguro de eliminar la rutina?',
       icon: 'warning',
@@ -39,13 +39,11 @@ const MisRutinas = () => {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedRutinas = [...misRutinas];
-        updatedRutinas.splice(index, 1);
+        const updatedRutinas = misRutinas.filter((rutina) => rutina.id !== id);
         setMisRutinas(updatedRutinas);
         localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
-        
       }
-      if(result.isConfirmed){
+      if (result.isConfirmed) {
         Swal.fire({
           text: 'La rutina se ha eliminado',
           icon: 'success',
@@ -56,30 +54,28 @@ const MisRutinas = () => {
   };
 
 
-  const EditarRutina = (index) => {
-    console.log('Índice recibido:', index);
-    console.log('Resultado Encontrado:', resultadoEncontrado);
-    console.log('Mis Rutinas:', misRutinas);
+  const EditarRutina = (id) => {
+    console.log('Editar rutina con ID:', id);
 
     if (resultadoEncontrado.length > 0) {
-      const rutinaSeleccionada = resultadoEncontrado[index];
+      // Si el resultadoEncontrado no está vacío, busca la rutina en resultadoEncontrado
+      const rutinaSeleccionada = resultadoEncontrado.find((rutina) => rutina.id === id);
       if (rutinaSeleccionada) {
-        // Clonar la rutina seleccionada para evitar referencias directas
         const rutinaEditadaClone = JSON.parse(JSON.stringify(rutinaSeleccionada));
-        setRutinaIndex(index);
+        setRutinaIndex(id);
         setRutinaEditada(rutinaEditadaClone);
-        setFuenteDeDatos('resultadoEncontrado'); // Marcar la fuente de datos como resultadoEncontrado
+        setFuenteDeDatos('resultadoEncontrado');
       } else {
         console.error("Rutina no encontrada en resultadoEncontrado");
       }
     } else {
-      const rutinaSeleccionada = misRutinas[index];
+      // Si resultadoEncontrado está vacío, busca la rutina en misRutinas
+      const rutinaSeleccionada = misRutinas.find((rutina) => rutina.id === id);
       if (rutinaSeleccionada) {
-        // Clonar la rutina seleccionada para evitar referencias directas
         const rutinaEditadaClone = JSON.parse(JSON.stringify(rutinaSeleccionada));
-        setRutinaIndex(index);
+        setRutinaIndex(id);
         setRutinaEditada(rutinaEditadaClone);
-        setFuenteDeDatos('misRutinas'); // Marcar la fuente de datos como misRutinas
+        setFuenteDeDatos('misRutinas');
       } else {
         console.error("Rutina no encontrada en misRutinas");
       }
@@ -89,12 +85,37 @@ const MisRutinas = () => {
   const guardarEdicionRutina = () => {
     const rutinasActualizadas = [...misRutinas];
 
-    if (fuenteDeDatos === 'misRutinas') {
-      rutinasActualizadas[rutinaIndex] = rutinaEditada;
-    } else if (fuenteDeDatos === 'resultadoEncontrado') {
-      // Si la fuente de datos es resultadoEncontrado, actualiza la rutina en resultadoEncontrado
-      resultadoEncontrado[rutinaIndex] = rutinaEditada;
+  if (fuenteDeDatos === 'misRutinas') {
+    const index = rutinasActualizadas.findIndex((rutina) => rutina.id === rutinaIndex);
+    if (index !== -1) {
+      // Actualizar los ejercicios con sus IDs únicos
+      rutinaEditada.ejercicios = rutinaEditada.ejercicios.map((ejercicio, i) => ({
+        id: i + 1, // Aquí asignamos un nuevo ID único basado en el índice
+        ejercicio: ejercicio.ejercicio,
+        series: ejercicio.series,
+        repeticiones: ejercicio.repeticiones,
+      }));
+      rutinasActualizadas[index] = rutinaEditada;
     }
+  } else if (fuenteDeDatos === 'resultadoEncontrado') {
+    const index = resultadoEncontrado.findIndex((rutina) => rutina.id === rutinaIndex);
+    if (index !== -1) {
+      // Actualizar los ejercicios con sus IDs únicos
+      rutinaEditada.ejercicios = rutinaEditada.ejercicios.map((ejercicio, i) => ({
+        id: i + 1, // Aquí asignamos un nuevo ID único basado en el índice
+        ejercicio: ejercicio.ejercicio,
+        series: ejercicio.series,
+        repeticiones: ejercicio.repeticiones,
+      }));
+      resultadoEncontrado[index] = rutinaEditada;
+      const updatedMisRutinas = [...misRutinas];
+      const originalIndex = updatedMisRutinas.findIndex((rutina) => rutina.id === rutinaIndex);
+      if (originalIndex !== -1) {
+        updatedMisRutinas[originalIndex] = rutinaEditada;
+      }
+      setMisRutinas(updatedMisRutinas);
+    }
+  }
 
     // Actualizar el estado global
     setMisRutinas(rutinasActualizadas);
@@ -158,10 +179,10 @@ const MisRutinas = () => {
                     ))}
                     </tbody>
                   </table>
-                  <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
+                  <button className="boton-eliminar" onClick={() => handleEliminarRutina(rutina.id)}>
                     Eliminar
                   </button>
-                  <button className='boton-editar' onClick={()=> EditarRutina(index)}>
+                  <button className='boton-editar' onClick={()=> EditarRutina(rutina.id)}>
                     Editar
                   </button>
                 </div>
@@ -190,10 +211,10 @@ const MisRutinas = () => {
                       ))}
                     </tbody>
                   </table>
-                  <button className="boton-eliminar" onClick={() => handleEliminarRutina(index)}>
+                  <button className="boton-eliminar" onClick={() => handleEliminarRutina(rutina.id)}>
                     Eliminar
                   </button>
-                  <button className='boton-editar' onClick={()=> EditarRutina(index)}>
+                  <button className='boton-editar' onClick={()=> EditarRutina(rutina.id)}>
                     Editar
                   </button>
                 </div>
