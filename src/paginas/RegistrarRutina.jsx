@@ -3,11 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../Nav';
 import { Contexto } from '../context/Contexto';
+import {v4 as uuidv4} from 'uuid'
 
 const RegistrarRutina = () => {
   const { misRutinas, setMisRutinas } = useContext(Contexto);
   const [nombreRutina, setNombreRutina] = useState('');
-  const [ejercicios, setEjercicios] = useState([{ id: 1, ejercicio: '', series: '', repeticiones: '' }]);
+  const [ejercicios, setEjercicios] = useState([{ id: uuidv4(), ejercicio: '', series: '', repeticiones: '' }]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -24,11 +25,11 @@ const RegistrarRutina = () => {
   }, [misRutinas]);
 
   // Función para generar un ID único para los ejercicios
-  const generarIdUnico = () => {
-    // Encuentra el máximo ID existente y agrega 1 para obtener un nuevo ID
-    const maxId = Math.max(...ejercicios.map(ejercicio => ejercicio.id), 0);
-    return maxId + 1;
-  };
+  // const generarIdUnico = () => {
+  //   // Encuentra el máximo ID existente y agrega 1 para obtener un nuevo ID
+  //   const maxId = Math.max(...ejercicios.map(ejercicio => ejercicio.id), 0);
+  //   return maxId + 1;
+  // };
 
   const handleChangeNombreRutina = (e) => {
     setNombreRutina(e.target.value);
@@ -42,8 +43,8 @@ const RegistrarRutina = () => {
   };
 
   const handleAddEjercicio = () => {
-    const newId = generarIdUnico();
-    setEjercicios([...ejercicios, { id: newId, ejercicio: '', series: '', repeticiones: '' }]);
+    // const newId = generarIdUnico();
+    setEjercicios([...ejercicios, { id: uuidv4(), ejercicio: '', series: '', repeticiones: '' }]);
   };
 
   const handleRemoveEjercicio = (index) => {
@@ -60,9 +61,10 @@ const RegistrarRutina = () => {
     }
     setMisRutinas([...misRutinas, { nombre: nombreRutina, ejercicios: ejercicios }]);
     setNombreRutina('');
-    setEjercicios([{ id: generarIdUnico(), ejercicio: '', series: '', repeticiones: '' }]);
+    setEjercicios([{ id: uuidv4(), ejercicio: '', series: '', repeticiones: '' }]);
     setError(false);
 
+    console.log(ejercicios)
     toast.success('Rutina guardada', { autoClose: 2500 });
     console.log(ejercicios)
   };
