@@ -87,55 +87,40 @@ const MisRutinas = () => {
   };
 
   const guardarEdicionRutina = () => {
+    // Clona las rutinas existentes
     const rutinasActualizadas = [...misRutinas];
-  
-    if (fuenteDeDatos === 'misRutinas') {
-      const index = rutinasActualizadas.findIndex((rutina) => rutina.ejercicios[0].id === rutinaIndex);
-      if (index !== -1) {
-        // Actualizar los ejercicios con sus IDs únicos
-        rutinaEditada.ejercicios = rutinaEditada.ejercicios.map((ejercicio, i) => ({
-          id: i + 1, // Asignamos un nuevo ID único basado en el índice
-          ejercicio: ejercicio.ejercicio,
-          series: ejercicio.series,
-          repeticiones: ejercicio.repeticiones,
-        }));
-        // Asignar el mismo ID a la rutina editada
+
+    // Busca la rutina por su ID
+    const index = rutinasActualizadas.findIndex((rutina) => rutina.ejercicios[0].id === rutinaIndex);
+
+    if (index !== -1) {
+        // Actualiza la rutina editada manteniendo el mismo ID
         rutinaEditada.id = rutinaIndex;
         rutinasActualizadas[index] = rutinaEditada;
-      }
-    } else if (fuenteDeDatos === 'resultadoEncontrado') {
-      const index = resultadoEncontrado.findIndex((rutina) => rutina.ejercicios[0].id === rutinaIndex);
-      if (index !== -1) {
-        // Actualizar los ejercicios con sus IDs únicos
-        rutinaEditada.ejercicios = rutinaEditada.ejercicios.map((ejercicio, i) => ({
-          id: i + 1, // Asignamos un nuevo ID único basado en el índice
-          ejercicio: ejercicio.ejercicio,
-          series: ejercicio.series,
-          repeticiones: ejercicio.repeticiones,
-        }));
-        // Asignar el mismo ID a la rutina editada
-        rutinaEditada.id = rutinaIndex;
-        resultadoEncontrado[index] = rutinaEditada;
-        const updatedMisRutinas = [...misRutinas];
-        const originalIndex = updatedMisRutinas.findIndex((rutina) => rutina.ejercicios[0].id === rutinaIndex);
-        if (originalIndex !== -1) {
-          updatedMisRutinas[originalIndex] = rutinaEditada;
-        }
-        setMisRutinas(updatedMisRutinas);
-      }
+
+        // Actualiza el estado global con los cambios
+        setMisRutinas(rutinasActualizadas);
+
+        // Actualiza el almacenamiento local
+        localStorage.setItem('misRutinas', JSON.stringify(rutinasActualizadas));
     }
-  
-    // Actualizar el estado global
-    setMisRutinas(rutinasActualizadas);
-  
-    // Actualizar el almacenamiento local
-    localStorage.setItem('misRutinas', JSON.stringify(rutinasActualizadas));
-  
-    // Limpiar los valores de edición
-    setRutinaEditada({ nombre: '', ejercicios: [] }); // Reiniciar la rutina editada
+
+    // Limpia los valores de edición y la fuente de datos
+    setRutinaEditada({ nombre: '', ejercicios: [] });
     setRutinaIndex(null);
-    setFuenteDeDatos(null); // Reiniciar la fuente de datos
-  };
+    setFuenteDeDatos(null);
+
+    // Actualiza el estado resultadoEncontrado
+    setResultadoEncontrado(rutinasActualizadas.filter((rutina) =>
+        rutina.nombre.toLowerCase().includes(buscador.toLowerCase())
+    ));
+};
+
+
+
+
+
+
   
 
   //Buscar rutina
