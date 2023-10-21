@@ -43,6 +43,9 @@ const MisRutinas = () => {
         const updatedRutinas = misRutinas.filter((rutina) => rutina.ejercicios[0].id !== id);
         setMisRutinas(updatedRutinas);
         localStorage.setItem('misRutinas', JSON.stringify(updatedRutinas));
+        setResultadoEncontrado(updatedRutinas.filter((rutina) =>
+        rutina.nombre.toLowerCase().includes(buscador.toLowerCase())
+    ));
       }
       if (result.isConfirmed) {
         Swal.fire({
