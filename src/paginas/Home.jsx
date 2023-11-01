@@ -15,7 +15,7 @@ const Home = () => {
     // Comparar usuario y contraseña sin espacios en blanco
     if (User === 'user' && Password === 'password') {
       // Redirigir a la otra página
-      navigate('/registrarPr');
+      navigate('/registrarPr', {replace:true});
     } else {
       // Mostrar mensaje de error o realizar otra acción
       Swal.fire({

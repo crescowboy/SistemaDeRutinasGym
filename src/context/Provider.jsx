@@ -1,5 +1,14 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import { Contexto } from './Contexto';
+import miReducer from './miReducer';
+
+
+const init = ()=>{
+  const valor = localStorage.getItem("estado");
+  return {
+    estado:!!valor
+  }
+}
 
 const Provider = ({children}) => {
 
@@ -10,6 +19,7 @@ const Provider = ({children}) => {
   const [rutinaGuardada,setRutinaGuardada] = useState(false);
   const [valores,setValores] = useState([]);
   const [estado,setEstado] = useState(false);
+  const [logeado,dispatch] = useReducer(miReducer,{},init)
   
   // const [objetoMisRutinas,setObjetoMisRutinas] = useState([
   //   {
@@ -33,7 +43,8 @@ const Provider = ({children}) => {
       valores,
       setValores,
       estado,
-      setEstado
+      setEstado,
+      ...logeado
       // objetoMisRutinas,
       // setObjetoMisRutinas
       }}>

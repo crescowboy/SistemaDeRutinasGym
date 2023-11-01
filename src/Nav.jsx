@@ -1,8 +1,14 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 const Nav = () => {
+
+  const navegacion = useNavigate();
+  const logout = ()=>{
+    navegacion('/Home',{replace:true})
+  }
+
   return (
     <nav className='navbar'>
         <ul>
@@ -18,7 +24,7 @@ const Nav = () => {
         </ul>
 
         <ul>
-        <li><NavLink to="/">Salir</NavLink></li>
+        <button onClick={logout}>Salir</button> 
         </ul>
     </nav>
   )
