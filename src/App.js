@@ -8,14 +8,15 @@ import Provider from "./context/Provider";
 import MisRutinas from "./paginas/MisRutinas";
 import GuiaEjercicios from "./paginas/GuiaEjercicios";
 import Principal from "./paginas/Principal";
+import Router1 from "./routes/Router1";
 
 
 
 function App() {
   return (
     <>
-    <Provider>
-    <Routes>
+    
+    {/* <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/registrarPr' element={<RegistrarMarcas></RegistrarMarcas>}></Route>
@@ -23,10 +24,11 @@ function App() {
         <Route path="/misRutinas" element={<MisRutinas></MisRutinas>}></Route>
         <Route path="/guiaEjercicios" element={<GuiaEjercicios></GuiaEjercicios>}></Route>
         <Route path="/principal" element={<Principal></Principal>}></Route>
-        {/* <Route path="/prueba" element={<Prueba_rf></Prueba_rf>}></Route> */}
-    </Routes>
-    <ToastContainer />
-    </Provider>
+        
+    </Routes> */}
+
+    <Router1></Router1>
+    
     </>
   );
 }

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Contexto } from '../context/Contexto';
 
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const {logearme} = useContext(Contexto)
 
   const Login = () => {
     // Eliminar los espacios en blanco al principio y al final del usuario y la contraseña
@@ -16,6 +18,8 @@ const Home = () => {
     if (User === 'user' && Password === 'password') {
       // Redirigir a la otra página
       navigate('/registrarPr', {replace:true});
+      logearme('login')
+      
     } else {
       // Mostrar mensaje de error o realizar otra acción
       Swal.fire({

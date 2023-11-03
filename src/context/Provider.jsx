@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from 'react'
 import { Contexto } from './Contexto';
 import miReducer from './miReducer';
+import types from './types';
 
 
 const init = ()=>{
@@ -21,13 +22,21 @@ const Provider = ({children}) => {
   const [estado,setEstado] = useState(false);
   const [logeado,dispatch] = useReducer(miReducer,{},init)
   
-  // const [objetoMisRutinas,setObjetoMisRutinas] = useState([
-  //   {
-  //     ejercicio: "",
-  //     series: "",
-  //     Repeticiones: ""
-  //   }
-  // ]);
+  const logearme =()=>{
+    const action={
+      type:types.login
+    }
+    localStorage.setItem('estado',true)
+    dispatch(action)
+  }
+
+  const deslogearme =()=>{
+    const action={
+      type:types.logout
+    }
+    localStorage.removeItem('estado',true)
+    dispatch(action)
+  }
   return (
     <Contexto.Provider value={{
       cancelarNombreRutina,
@@ -44,7 +53,9 @@ const Provider = ({children}) => {
       setValores,
       estado,
       setEstado,
-      ...logeado
+      ...logeado,
+      logearme,
+      deslogearme
       // objetoMisRutinas,
       // setObjetoMisRutinas
       }}>

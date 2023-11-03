@@ -1,5 +1,9 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import RegistrarMarcas from '../paginas/RegistrarMarcas'
+import RegistrarRutina from '../paginas/RegistrarRutina'
+import MisRutinas from '../paginas/MisRutinas'
+import GuiaEjercicios from '../paginas/GuiaEjercicios'
 
 const Router2 = () => {
   return (
