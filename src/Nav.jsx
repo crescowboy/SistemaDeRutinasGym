@@ -29,7 +29,7 @@ const Nav = () => {
         </ul>
 
         <ul>
-        <button onClick={logout}>Salir</button> 
+        <li> <button onClick={logout}>Salir</button></li> 
         </ul>
     </nav>
   )
