@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const RutasPublicas = ({children}) => {
 
     const {estado} = useContext(Contexto);
-  return (estado)
+  return (!estado)
     ? children
     : <Navigate to='/registrarPr'></Navigate>
 }

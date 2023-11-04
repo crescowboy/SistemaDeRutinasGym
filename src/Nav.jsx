@@ -10,7 +10,7 @@ const Nav = () => {
 
 
   const logout = ()=>{
-    navegacion('/Home',{replace:true})
+    navegacion('/home',{replace:true})
     deslogearme()
   }
 

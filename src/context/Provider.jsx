@@ -22,7 +22,7 @@ const Provider = ({children}) => {
   const [estado,setEstado] = useState(false);
   const [logeado,dispatch] = useReducer(miReducer,{},init)
   
-  const logearme =()=>{
+  const logearme =(user='')=>{
     const action={
       type:types.login
     }

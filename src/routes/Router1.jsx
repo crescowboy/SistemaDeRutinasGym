@@ -12,11 +12,11 @@ const Router1 = () => {
   return (
     <Provider>
     <Routes>
-        <Route path='/' element={
+        {/* <Route path='/' element={
           <RutasPublicas>
         <Home></Home>
         </RutasPublicas>
-        }></Route>
+        }></Route> */}
         <Route path='/home' element={
           <RutasPublicas>
         <Home></Home>
