@@ -6,9 +6,11 @@ import MisRutinas from '../paginas/MisRutinas'
 import Router2 from './Router2'
 import RutasPublicas from './RutasPublicas'
 import RutasPrivadas from './RutasPrivadas'
+import Provider from '../context/Provider'
 
 const Router1 = () => {
   return (
+    <Provider>
     <Routes>
         <Route path='/' element={
           <RutasPublicas>
@@ -26,6 +28,7 @@ const Router1 = () => {
         </RutasPrivadas>
         }></Route>
     </Routes>
+    </Provider>
   )
 }
 
