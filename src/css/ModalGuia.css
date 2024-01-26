@@ -1,0 +1,16 @@
+/* MODAL GUIA */
+.modal-guia ul, li{
+    padding: 10px;
+  }
+  
+  .modal-guia{
+    color: white;
+  }
+  .modal-guia li{
+    
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }

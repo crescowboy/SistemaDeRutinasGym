@@ -1,0 +1,159 @@
+/* ESTILOS REGISTRAR MARCAS */
+
+.container-marcas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1C2128;
+    padding-top: 20px;
+  }
+  
+  .content-marcas {
+    width: 80%;
+    max-width: 500px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .content-marcas h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+  }
+  
+  .input-marcas {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .input-marcas label {
+    width: 150px;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .input-marcas input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input-marcas input[type="number"]:focus {
+    outline: none;
+    border: 1px solid #6e87c6;
+  }
+  
+  .kg{
+    padding: 5px;
+  }
+  
+  .boton-marcas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .boton-marcas input[type="submit"] {
+    background-color: #ff0;
+    width: 200px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .boton-marcas button {
+    background-color: red;
+    width: 200px;
+    margin-left: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .boton-marcas input[type="submit"]:hover {
+    background-color: rgb(216, 216, 0);
+  }
+  
+  .boton-marcas button:hover {
+    background-color: rgb(209, 0, 0);
+  }
+  
+  
+  
+  .mostrarPr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    background-color: #1C2128;
+    height: 400px;
+  }
+  
+  
+  .ejercicioPr1{
+    width: 149px;
+    height: 149px;
+    border-radius: 50%;
+    background-color: rgb(8, 8, 8);
+    border: 3px solid white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .ejercicioPr {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    
+  }
+  
+  
+  
+  .ejercicioPr:hover {
+    background-color: rgb(63, 63, 63);
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .error{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .Pr-padre{
+    background-color: black;
+    height: 100vh;
+  }

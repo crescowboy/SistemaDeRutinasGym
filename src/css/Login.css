@@ -1,0 +1,81 @@
+HOME ESTILOS LOGIN
+.empezar{
+  text-align: center;
+}
+
+.container-empezar{
+  background-color: #2D333B;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-empezar h1{
+  font-size: 50px;
+  color: white;
+  margin-bottom: 20px;
+}
+.boton-empezar{
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, .4);
+}
+
+.boton-empezar:hover{
+  background-color: antiquewhite;
+  transition: 1s;
+}
+
+.login {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.login h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.login label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  width: 94%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff0;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.login button:hover {
+  background-color: rgb(211, 211, 0);
+}

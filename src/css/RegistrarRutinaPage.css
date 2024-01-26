@@ -1,0 +1,112 @@
+
+/* ESTILOS REGISTRAR RUTINAS */
+.btn-guardar{
+    background-color: #ff0;
+    width: 200px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .btn-guardar:hover{
+    background-color: rgb(220, 220, 0);
+  }
+  
+  .Pr-padre{
+    background-color: #1C2128;
+    height: 100vh;
+  }
+  .Registrar-rutinas-padre{
+    padding: 10px;
+    
+  }
+  .container-rutinas h1{
+    color: white;
+  }
+  
+  .tabla-nueva-rutina {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 5px;
+  }
+  
+  .tabla-nueva-rutina button {
+    margin-top: 10px;
+  }
+  
+  /* .tabla-nueva-rutina input[type="text"] {
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+  } */
+  
+  .tabla-nueva-rutina input[type="text"]::placeholder {
+    color: #999;
+  }
+  
+  .botones-nueva-rutina button{
+    margin-right: 10px;
+  }
+  
+  .tabla-nueva-rutina input[type="text"] {
+    background-color: #f5f5f5;
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .tabla-nueva-rutina input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #6e87c6;
+  }
+  
+  .tabla-nueva-rutina input[type="number"] {
+    background-color: #f5f5f5;
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .tabla-nueva-rutina input[type="number"]:focus {
+    outline: none;
+    border: 1px solid #6e87c6;
+  }
+  
+  .container-rutina-nombre{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container-rutina-nombre label{
+    color: white;
+  }
+  
+  .error{
+    background-color: red;
+    color: white;
+    width: 200px;
+    border-radius: 5px;
+    padding: 5px 15px;
+  }
+  
+  .tabla-nueva-rutina label{
+    
+    padding-top: 10px;
+    padding-right: 20px;
+  }

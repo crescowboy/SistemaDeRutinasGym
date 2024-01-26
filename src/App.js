@@ -1,13 +1,14 @@
 import { Route, Router, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./paginas/Home";
-import RegistrarMarcas from "./paginas/RegistrarMarcas";
-import RegistrarRutina from "./paginas/RegistrarRutina";
-import Provider from "./context/Provider";
-import MisRutinas from "./paginas/MisRutinas";
-import GuiaEjercicios from "./paginas/GuiaEjercicios";
-import Principal from "./paginas/Principal";
+import './css/Login.css';
+import './css/Navbar.css';
+import './css/RegistrarMarcasPage.css';
+import './css/RegistrarRutinaPage.css';
+import './css/MisRutinasPage.css';
+import './css/GuiaPage.css';
+import './css/ModalGuia.css';
+import './css/ModalMisRutinas.css';
 import Router1 from "./routes/Router1";
 
 

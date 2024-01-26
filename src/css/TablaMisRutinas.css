@@ -1,0 +1,53 @@
+/* ESTILOS TABLA MIS RUTINAS */
+
+.tabla-ejercicios {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tabla-ejercicios th,
+  .tabla-ejercicios td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .tabla-ejercicios th {
+    background-color: #c7c7c7;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .nombre-rutina {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .boton-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .boton-eliminar:hover {
+    background-color: #c82333;
+  }
+  
+  .boton-editar{
+    background-color: #ff0;
+    width: 80px;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton-editar:hover{
+    background-color: rgb(187, 187, 0);
+  }
