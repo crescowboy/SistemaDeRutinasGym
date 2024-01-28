@@ -57,3 +57,18 @@
     margin-bottom: 40px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   }
+
+  @media only screen and (max-width: 767px){
+
+    .container-guiaRutina-padre{
+      height: 100%;
+    }
+    .container-card{
+      flex-wrap: wrap;
+    }
+    
+    .card{
+      width: 75%;
+      height: 400px;
+    }
+  }
