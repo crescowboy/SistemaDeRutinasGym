@@ -158,5 +158,49 @@
     height: 100vh;
   }
 
-  
+  @media only screen and (max-width: 767px) {
+    /* Estilos para teléfonos inteligentes en posición horizontal */
+
+    .mostrarPr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-bottom: 30px;
+      background-color: #1C2128;
+      height: 400px;
+    }
+    
+    
+    .ejercicioPr1{
+      width: 149px;
+      height: 149px;
+      border-radius: 50%;
+      background-color: rgb(8, 8, 8);
+      border: 3px solid white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    
+    .ejercicioPr {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+      cursor: pointer;
+      font-weight: bold;
+      
+    }
+  }
   
