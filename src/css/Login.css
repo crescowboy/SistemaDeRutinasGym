@@ -79,3 +79,17 @@ HOME ESTILOS LOGIN
 .login button:hover {
   background-color: rgb(211, 211, 0);
 }
+
+
+
+@media only screen and (max-width: 767px) {
+  /* Estilos para teléfonos inteligentes en posición horizontal */
+
+  .container-empezar h1{
+    font-size: 1.5rem;
+  }
+
+  .login {
+    width: 80%;
+  }
+}
