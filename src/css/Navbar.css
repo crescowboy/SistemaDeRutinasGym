@@ -1,116 +1,170 @@
-/* NAVBAR */
-
+/* NAV */
 .navbar{
-    display: flex;
-    justify-content: space-between;
-    background-color: #2D333B;
+  display: flex;
+  justify-content: center;
+  background-color: #2D333B;
+  width: 100%;
+}
+
+header{
+  margin-bottom: 50px;
+}
+.header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.nav-list{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  background-color: #2D333B;
+  height: 50px;
+  gap: 15px;
+}
+
+
+
+.nav-list a{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  transition: 0.5s all linear;
+  padding: 5px 20px;
+}
+
+.navbar ul li a:hover{
+  color: #ff0;
+}
+
+/* Estilos de la navegación */
+
+
+
+.navbar ul li button{
+  background-color: #2D333B;
+  border: none;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  transition: 0.5s all linear;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.navbar ul li button:hover{
+  color: #ff0;
+}
+
+
+
+
+
+.menu-button {
+  display: none;
+  position: fixed; /* Fija la posición */
+top: 10px; /* Distancia desde la parte superior */
+right: 10px; /* Distancia desde la derecha */
+z-index: 1000; /* Ajusta la capa z para estar sobre otros elementos si es necesario */
+}
+
+
+
+@media screen and (max-width: 768px){
+
+
+
+  /* Estilos para la lista de navegación */
+.nav-list {
+list-style: none;
+display: flex;
+gap: 0px;
+}
+.nav-list button {
+  list-style: none;
+  display: flex;
+  gap: 0px;
   }
+
+.nav-list li {
+margin-right: 0;
+margin-bottom: 8px;
+}
+
+/* Estilos para los elementos de la lista */
+.nav-list a {
+text-decoration: none;
+display: none;
+color: #fff;
+}
+
+
+
+.navbar ul li button{
+ display: none;
+  background-color: #2D333B;
+  border: none;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  transition: 0.5s all linear;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.navbar ul li button:hover{
+  color: #ff0;
+}
+
+
   
-  .navbar {
-    display: flex;
-    justify-content: center;
+  /* Estilos específicos cuando la barra de navegación está abierta */
+.open .nav-list {
+display: flex;
+flex-direction: column;
+position: absolute;
+top: 55px; /* Ajusta según la altura de tu barra de navegación */
+left: 0;
+width: 100%;
+height: 300px;
+background-color: #333;
+text-align: center;
+z-index: 1;
+}
+
+/* Estilos para cada elemento de la lista cuando la barra de navegación está abierta */
+.navbar.open .nav-list a {
+padding: 1px;
+width: 100%;
+box-sizing: border-box;
+display: block;
+}
+
+.navbar.open .nav-list button {
+  display: block;
   }
-  
-  /* Estilo para el enlace activo en el Nav */
-  .navbar a.active {
-    color: #ff0;
-  }
-  
-  
-  .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-item {
-    margin-right: 20px;
-    display: inline-block;
-  }
-  
-  .nav-item a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar ul{
-    display: flex;
-    list-style: none;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #2D333B;
-    height: 50px;
-    gap: 15px;
-  }
-  
-  /* .activado{
-    color: red;
-    background-color: #ff0;
-  } */
-  
-  .navbar ul li a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    transition: 0.5s all linear;
-    padding: 5px 20px;
-  }
-  
-  .navbar ul li a:hover{
-    color: #ff0;
-  }
-  
-  .navbar ul li button{
-    background-color: #2D333B;
+
+
+
+ 
+
+  .menu-button {
+    display: block;
+    font-size: 24px;
+    background: none;
     border: none;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    transition: 0.5s all linear;
-    padding: 5px 20px;
     cursor: pointer;
   }
-  
-  .navbar ul li button:hover{
-    color: #ff0;
-  }
-  
-  
-  
-  .navbar ul li a::before{
-    position: absolute;
-    content: '';
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #ff0;
-    z-index: -1;
-  }
-  
-  .navbar ul li a:hover::before{
-    animation: ani ls cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  }
-  
-  @keyframes ani{
-    0% {
-      width: 0%;
-      height: 1px;
-      left: 50%;
-    }
-  
-    50% {
-      width: 100%;
-      height: 1px;
-      left: 0%;
-    }
-  
-    100% {
-      width: 100%;
-      height: 100%;
-      left: 0;
-    }
-  }
+}
+
+
+
+
+
+ 
