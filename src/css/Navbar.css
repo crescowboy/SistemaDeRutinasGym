@@ -132,12 +132,13 @@ color: #fff;
 display: flex;
 flex-direction: column;
 position: absolute;
-top: 55px; /* Ajusta según la altura de tu barra de navegación */
+top: 0; /* Ajusta según la altura de tu barra de navegación */
 left: 0;
 width: 100%;
 height: 300px;
 background-color: #333;
 text-align: center;
+padding-top: 50px;
 z-index: 1;
 }
 
@@ -160,6 +161,7 @@ display: block;
   .menu-button {
     display: block;
     font-size: 24px;
+    color: white;
     background: none;
     border: none;
     cursor: pointer;
